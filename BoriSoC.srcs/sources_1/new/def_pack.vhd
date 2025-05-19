@@ -119,6 +119,7 @@ package def_pack is
     
     
     ----------------------ALU functions-------------------------------
+    function max(a,b:integer) return integer;--TODO: Get this to some other package, its such a stupid funciton
     function "+"(a, b : bit_vector) return bit_vector;
 end def_pack;
     
@@ -240,18 +241,25 @@ package body def_pack is
     end function;
     
     ---------------------ALU functions------------------------------------
-    
+    function max(a, b : integer) return integer is
+    begin
+        if a > b then
+            return a;
+        else
+            return b;
+        end if;
+    end function;
+
     
     function "+"(a, b : bit_vector) return bit_vector is
     constant len_a  : integer := a'length;
     constant len_b  : integer := b'length;
-    constant result_len : integer := integer'max(len_a, len_b) + 1;
+    constant result_len : integer := max(len_a, len_b) + 1;
 
     variable a_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
     variable b_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
     variable sum    : bit_vector(result_len - 1 downto 0);
     variable carry  : bit := '0';
-    variable total : integer := 0;
         begin
         -- Copy inputs into zero-extended vectors (aligned at LSB)
         for i in 0 to len_a - 1 loop
@@ -265,9 +273,10 @@ package body def_pack is
         -- Perform bitwise addition
         for i in 0 to result_len - 1 loop
             
-            total := to_integer(a_ext(i)) + to_integer(b_ext(i)) + to_integer(carry);
-            sum(i) := bit'val(total mod 2);
-            carry  := bit'val(total / 2);
+            
+
+            sum(i) := a_ext(i) XOR b_ext(i) XOR carry; --lets hope vivado recoginzes this is just a full adder
+            carry := (a_ext(i) AND b_ext(i)) OR (a_ext(i) AND carry) OR (carry AND b_ext(i));
         end loop;
         
     return sum;

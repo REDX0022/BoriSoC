@@ -118,10 +118,14 @@ begin
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here
-                    exit;
+                    
+                    WAIT;
+                    --lets do a reg dump here
+                    
             end case;
             temp2 := PC + X"0001"; --TODO: Impelement an incr function, fml;
-            PC:= temp1(15 downto 0);    
+            PC:= temp1(15 downto 0);
+            wait for 20ns; --just to see the thing ig
         end loop;
     end process;
 end functional;
