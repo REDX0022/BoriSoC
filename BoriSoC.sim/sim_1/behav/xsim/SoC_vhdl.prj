@@ -1,8 +1,8 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../RISC-V FM.srcs/sources_1/new/def_pack.vhd" \
-"../../../../RISC-V FM.srcs/sources_1/new/init_pack.vhd" \
-"../../../../RISC-V FM.srcs/sources_1/new/SoC.vhd" \
+"../../../../BoriSoC.srcs/sources_1/new/def_pack.vhd" \
+"../../../../BoriSoC.srcs/sources_1/new/init_pack.vhd" \
+"../../../../BoriSoC.srcs/sources_1/new/SoC.vhd" \
 
 # Do not sort compile order
 nosort
