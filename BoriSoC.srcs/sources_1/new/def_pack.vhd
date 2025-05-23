@@ -58,6 +58,8 @@ package def_pack is
     
     
     type mem_type is array(maxaddr downto 0) of byte_type;
+
+    --type IO_type is array(integer <>) of byte_type;
     
     -----------------------Instruction definitions--------------------
     constant opcodew: integer := 7;
@@ -108,10 +110,16 @@ package def_pack is
     --function to_data(addr: addr_type) return data_type;
     --function to_addr(data: data_type) return addr_type;
     function to_integer(addr: addr_type) return integer;
-    function to_integer(bv: bit_vector; len: integer ; signed: boolean) return integer;
+    function bv_to_integer(bv: bit_vector) return integer;
      
     function signext_bv2dw(bv: bit_vector) return dword_type;
+
+    function bitvec_to_hex_string(bv : bit_vector) return string;
     
+    function bitvec_to_bitstring(bv : bit_vector) return string;
+    
+    function hexstring_to_bitvector(s : string) return bit_vector;
+
     ----------------------Memory funtions-----------------------------
     function get_byte(addr: addr_type; mem: mem_type) return byte_type; -- does not perfrom extention
     function get_word(addr: addr_type; mem: mem_type) return word_type;
@@ -121,6 +129,7 @@ package def_pack is
     ----------------------ALU functions-------------------------------
     function max(a,b:integer) return integer;--TODO: Get this to some other package, its such a stupid funciton
     function "+"(a, b : bit_vector) return bit_vector;
+    function flipbv(bv: bit_vector) return bit_vector;
 end def_pack;
     
     
@@ -156,26 +165,105 @@ package body def_pack is
         --variable pow: integer; for synthesis vivado will probbaly better recongise VHDL power operator than powering manually
         begin
         
-        for i in 0 to addrw-1 loop
+        for i in addrw-1 downto 0 loop -- downto needs to be used ig
             if addr(i)='1' then
-                res := res + 2**i; --potenitally change to 1 shl i
+                res := res + 2**(i); --potenitally change to 1 shl i
             end if;
         end loop;
         return res;
     end function;
-    --TODO: implement signed and make argument actually do something
-    function to_integer(bv: bit_vector; len: integer ; signed: boolean) return integer is --NOTE: this accepts unsigned bv
-        variable res:integer := 0;
-        --variable pow: integer; for synthesis vivado will probbaly better recongise VHDL power operator than powering manually
-        begin
+    --TODO: make a signed version
+    function bv_to_integer(bv : bit_vector) return integer is
+    variable result : integer := 0;
+    variable exp : integer := bv'length-1;
+    begin
+        for i in bv'range loop
+            if(bv(i) = '1') then
+                result := result + 2**exp;
+            end if;
+            exp := exp-1;
+        end loop;
         
-        for i in 0 to len-1 loop
-            if bv(i)='1' then
-                res := res + 2**i;
-            end if;
-        end loop;
-        return res;
+        return result;
     end function;
+
+
+
+    function bitvec_to_hex_string(bv : bit_vector) return string is
+            constant hex_chars : string := "0123456789ABCDEF";
+            constant nibbles   : integer := bv'length / 4;
+            variable result    : string(1 to nibbles);
+            variable nibble    : integer;
+            variable idx       : integer := 1;
+            variable i         : integer;
+        begin
+            if (bv'length mod 4) /= 0 then
+                report "bit_vector length must be a multiple of 4"
+                severity error;
+            end if;
+
+            -- Process bits from MSB down to LSB, 4 at a time
+            i := bv'length - 1;
+            while i >= 0 loop
+                nibble := 0;
+                for j in 0 to 3 loop
+                    if bv(i - j + bv'low) = '1' then
+                        nibble := nibble + 2**(3 - j);
+                    end if;
+                end loop;
+                result(idx) := hex_chars(nibble + 1);
+                idx := idx + 1;
+                i := i - 4;
+            end loop;
+
+            return result;
+    end function;
+    
+
+    function bitvec_to_bitstring(bv : bit_vector) return string is
+    variable result : string(1 to bv'length);
+    variable idx : integer := 1;
+    begin
+        for i in bv'range loop
+            result(idx) := character'VALUE(bit'IMAGE(bv(i)));
+            idx := idx + 1;
+        end loop;
+        return result;
+    end function;
+
+    function hexstring_to_bitvector(s : string) return bit_vector is
+    variable result : bit_vector(s'length * 4 - 1 downto 0);
+    variable nibble : bit_vector(3 downto 0);
+        begin
+            for i in s'range loop
+                case s(i) is
+                    when '0' => nibble := "0000";
+                    when '1' => nibble := "0001";
+                    when '2' => nibble := "0010";
+                    when '3' => nibble := "0011";
+                    when '4' => nibble := "0100";
+                    when '5' => nibble := "0101";
+                    when '6' => nibble := "0110";
+                    when '7' => nibble := "0111";
+                    when '8' => nibble := "1000";
+                    when '9' => nibble := "1001";
+                    when 'A' | 'a' => nibble := "1010";
+                    when 'B' | 'b' => nibble := "1011";
+                    when 'C' | 'c' => nibble := "1100";
+                    when 'D' | 'd' => nibble := "1101";
+                    when 'E' | 'e' => nibble := "1110";
+                    when 'F' | 'f' => nibble := "1111";
+                    when others =>
+                        report "Invalid hex digit: " & s(i) severity error;
+                end case;
+
+                result((s'length - (i - s'low) - 1) * 4 + 3 downto (s'length - (i - s'low) - 1) * 4) := nibble;
+            end loop;
+
+        return result;
+    end function;
+
+
     ---------------------Sign and Zero extentinon functions--------------
      function signext_b2dw(byte: byte_type) return dword_type is --naming scheme is horrible i know
         begin
@@ -224,20 +312,20 @@ package body def_pack is
     function get_byte(addr: addr_type; mem: mem_type) return byte_type is
          variable byter: byte_type; 
          begin
-         return mem(to_integer(addr));
+         return mem(bv_to_integer(addr));
     end function;
     
     function get_word(addr: addr_type; mem: mem_type) return word_type is
          variable wordr: word_type; 
          begin
-         return mem(to_integer(addr)) & mem(to_integer(addr)+1); -- are we little endian or big endian i dont get it
+         return mem(bv_to_integer(addr)+1) & mem(bv_to_integer(addr)); -- are we little endian or big endian i dont get it
     end function;
     
     function get_dword(addr: addr_type; mem: mem_type) return dword_type is
          variable dwordr: dword_type; 
          begin
          
-         return mem(to_integer(addr)) & mem(to_integer(addr)+1) & mem(to_integer(addr)+2) & mem(to_integer(addr)+3);
+         return mem(bv_to_integer(addr)+3) & mem(bv_to_integer(addr)+2) & mem(bv_to_integer(addr)+1) & mem(bv_to_integer(addr));
     end function;
     
     ---------------------ALU functions------------------------------------
@@ -251,36 +339,52 @@ package body def_pack is
     end function;
 
     
-    function "+"(a, b : bit_vector) return bit_vector is
-    constant len_a  : integer := a'length;
-    constant len_b  : integer := b'length;
-    constant result_len : integer := max(len_a, len_b) + 1;
+    function "+"(a, b : bit_vector) return bit_vector is --indexing must start at 0 
+        constant len_a  : integer := a'length;
+        constant len_b  : integer := b'length;
+        constant result_len : integer := max(len_a, len_b) + 1;
+        
+        variable a_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
+        variable b_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
+        variable sum    : bit_vector(result_len - 1 downto 0);
+        variable carry  : bit := '0';
+        variable idx: integer :=0;
+            begin
+            -- Copy inputs into zero-extended vectors (aligned at LSB)
+            idx := a'length-1;
+            for i in a'range loop
+                 a_ext(idx) := a(i);
+                 idx := idx -1;
+            end loop;
+            
+            idx := b'length-1;
+            for i in b'range loop
+                 b_ext(idx) := b(i);
+                 idx := idx -1;
+            end loop;
+            
+            
+            
+            -- Perform bitwise addition
+            for i in 0 to result_len-1 loop
+                
+                
 
-    variable a_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
-    variable b_ext  : bit_vector(result_len - 1 downto 0) := (others => '0');
-    variable sum    : bit_vector(result_len - 1 downto 0);
-    variable carry  : bit := '0';
+                sum(i) := a_ext(i) XOR b_ext(i) XOR carry; --lets hope vivado recoginzes this is just a full adder
+                carry := (a_ext(i) AND b_ext(i)) OR (a_ext(i) AND carry) OR (carry AND b_ext(i));
+            end loop;
+            
+        return sum;
+    end function;
+
+    function flipbv(bv: bit_vector) return bit_vector is --begin with 0
+        variable res: bit_vector(bv'length-1 downto 0);
         begin
-        -- Copy inputs into zero-extended vectors (aligned at LSB)
-        for i in 0 to len_a - 1 loop
-            a_ext(i) := a(i + a'low);
-        end loop;
-        
-        for i in 0 to len_b - 1 loop
-            b_ext(i) := b(i + b'low);
-        end loop;
-        
-        -- Perform bitwise addition
-        for i in 0 to result_len - 1 loop
-            
-            
-
-            sum(i) := a_ext(i) XOR b_ext(i) XOR carry; --lets hope vivado recoginzes this is just a full adder
-            carry := (a_ext(i) AND b_ext(i)) OR (a_ext(i) AND carry) OR (carry AND b_ext(i));
-        end loop;
-        
-    return sum;
-end function;
+            for i in 0 to bv'length-1 loop
+                res(bv'length-1) := bv(i);
+            end loop;
+            return res;
+    end function;
 
     
     

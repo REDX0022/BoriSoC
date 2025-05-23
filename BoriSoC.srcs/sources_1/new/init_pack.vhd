@@ -46,17 +46,28 @@ package body init_pack is
    --TODO: Init memory with the text file.
    function init_mem return mem_type is
         variable mem: mem_type := (others => X"00");
+       
          -- sets r0 to 2, adds 3 to r0, sets r1 to r0+1
         ------------------------------ OP-IMM--r0-ADD-r1---imm
-        constant first: instr_type := "0010011" & "00000" & "000" & "00001" & "000000000010";
-        constant second: instr_type := "0010011" & "00001" & "000" & "00001" & "000000000101";
-        constant third: instr_type := "0010011" & "00001" & "000" & "00000" & "000000000001";
+        constant first: instr_type :=  "000000000010" & "00000" & "000" & "00000"  & "0010011";
+        constant second: instr_type := "000000000101"  & "00000" & "000" & "00000" & "0010011" ;
+        constant third: instr_type :=  "000000000001" & "00000" & "000" & "00001" & "0010011";
          begin
            --its hard coded for now, for testing
+            
             mem(0):= first(7 downto 0);
             mem(1):= first(15 downto 8);
             mem(2):= first(23 downto 16);
             mem(3):= first(31 downto 24);
+            mem(4):= second(7 downto 0);
+            mem(5):= second(15 downto 8);
+            mem(6):= second(23 downto 16);
+            mem(7):= second(31 downto 24);
+            mem(8):= third(7 downto 0);
+            mem(9):= third(15 downto 8);
+            mem(10):= third(23 downto 16);
+            mem(11):= third(31 downto 24);
+            
             return mem;
     end function;
     
