@@ -16,6 +16,13 @@ package IO_pack is
     impure function tokenize(filepath: string; mem: mem_type) return mem_type;
     procedure parse_line(tokens: tokens_type; tokens_len: tokens_len_type; token_count : integer; mem: inout mem_type; curr_addr: inout addr_type);
     procedure dump_memory(filename: in string; mem: in mem_type);
+    procedure get_next_token(
+        l      : inout line;
+        max_len       : in integer;
+        token         : out token_type;
+        token_len     : out integer;
+        end_of_line   : out boolean
+    );
 end package;
 
 
@@ -40,53 +47,81 @@ package body IO_pack is
         variable mem_res: mem_type := mem;
         variable curr_addr: addr_type := X"0000"; --no point in being bitvector 
 
+        variable end_of_line : boolean := false;
+        variable token : token_type;
+        variable token_len : integer;
 
         begin
         ---------------------------------Tokenisation------------------
         line_loop: loop
             exit when endfile(f);
-                readline(f,l);
-                scs := True;
-                 --actuall -1
-                token_count:= 0;
-                tokens := (others => "          ");
-                token_loop: while scs=True loop  
-                    w_count := 0;
-                    char_loop: while scs=True loop --TODO: make this logic nicer
-                        read(l,ch,scs); -- TODO: add asserts
-                        --if it did not succeed then end word and line idk how tho, should be fine
-                        if ((ch = ' ') AND (w_count>0)) then
-                            exit char_loop;
-                        elsif (ch = LF OR ch = CR OR ch = ';' OR not scs) then -- we remove the newline char and finish the token, this is getting messy
-                            --tokens(token_count)(w_count) := ' ';
-                            --tokens_len(token_count) := tokens_len(token_count) - 2; --no clue why it is -2 i guess its /n /r
-                            exit char_loop;
-                        elsif ch = ' ' then
-                            --beggining of comment and end of line at the same time, 
-                            next;
-                        else
-                            w_count := w_count+1;
-                            tokens(token_count)(w_count) := ch;
-                        end if;
-                    end loop;
-                    
-                    if(w_count = 0) then --empty word therefore we have nothing more of value in this line
-                        exit; --maybe not
-                    else --this should be a valid word
-                        tokens_len(token_count) := w_count;
-                        token_count := token_count + 1;
-                    end if; 
-                end loop;
-                report "A number of tokens was found" & integer'image(token_count);
-                report tokens(0)(1 to tokens_len(0)) & 'S';
-                report tokens(1)(1 to tokens_len(1)) & "S";
-                report tokens(2)(1 to tokens_len(2)) &"S";
-                report tokens(3)(1 to tokens_len(3)) & "S";
-                --now we have tokens
-                parse_line(tokens, tokens_len,token_count,mem_res,curr_addr);
+            readline(f, l);
+            token_count := 0;
+            tokens := (others => "          ");
+            tokens_len := (others => 0);
+            end_of_line := false;
+            -- Use get_next_token to extract tokens from the line
+
+            while not end_of_line loop
+                get_next_token(l, 10, token, token_len, end_of_line);
+                if token_len > 0 then
+                    tokens(token_count) := token;
+                    tokens_len(token_count) := token_len;
+                    token_count := token_count + 1;
+                end if;
+            end loop;
+            
+
+            -- Debug reports (optional)
+            report "A number of tokens was found" & integer'image(token_count);
+            
+            report tokens(0)(1 to tokens_len(0)) & 'S';
+            report tokens(1)(1 to tokens_len(1)) & "S";
+            report tokens(2)(1 to tokens_len(2)) &"S";
+            report tokens(3)(1 to tokens_len(3)) & "S";
+
+            -- Now we have tokens
+            parse_line(tokens, tokens_len, token_count, mem_res, curr_addr);
         end loop;
         return mem_res;
     end function;
+    -- Procedure to extract the next token from a line
+    procedure get_next_token(l: inout line;max_len: in integer; token: out token_type; token_len: out integer; end_of_line: out boolean) is
+        variable ch : character := ' ';
+        variable idx : integer := 1;
+        variable scs : boolean := true;
+    begin
+        token := (others => ' ');
+        token_len := 0;
+        end_of_line := false;
+
+        -- Skip leading spaces and control chars
+        while l'length > 0 loop
+            read(l, ch, scs);
+            exit when not scs or ((ch /= ' ') and (ch /= CR)); -- skip spaces and CR
+        end loop;
+
+        -- If we exited because we found a non-space/control character, use it as the first token character
+        if scs and (ch /= ' ') and (ch /= ';') and (ch /= CR) then
+            token(idx) := ch;
+            idx := idx + 1;
+            -- Read the rest of the token
+            while (l'length > 0) and (idx <= max_len) loop
+                read(l, ch, scs);
+                exit when (not scs) or (ch = ' ') or (ch = ';') or  (ch = CR);
+                token(idx) := ch;
+                idx := idx + 1;
+            end loop;
+            token_len := idx - 1;
+        else
+            token_len := 0;
+        end if;
+
+        -- Check if we hit end of line or comment
+        if (l'length = 0) or (ch = ';') or (ch = character'val(13)) then
+            end_of_line := true;
+        end if;
+    end procedure;
 
 
     procedure parse_line(tokens: tokens_type; tokens_len: tokens_len_type; token_count: integer; mem: inout mem_type; curr_addr: inout addr_type) is
@@ -145,8 +180,8 @@ package body IO_pack is
         
 
                 
-    end procedure;
-
+        end procedure;
+        
     procedure dump_memory(filename: in string; mem: in mem_type) is
         file outfile : text;
         variable outline : line;
@@ -173,4 +208,5 @@ package body IO_pack is
         file_close(outfile);
     end procedure;
 
+    
 end package body;
