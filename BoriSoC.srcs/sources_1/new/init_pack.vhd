@@ -26,6 +26,8 @@ use STD.TEXTIO.all;
 
 library WORK;
 use WORK.def_pack.all;
+use WORK.IO_pack.all;
+use WORK.mnemonic_pack.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -46,8 +48,9 @@ package body init_pack is
    --TODO: Init memory with the text file.
    function init_mem return mem_type is
         variable mem: mem_type := (others => X"00");
-       
-         -- sets r0 to 2, adds 3 to r0, sets r1 to r0+1
+        
+
+        
         ------------------------------ OP-IMM--r0-ADD-r1---imm
         constant first: instr_type :=  "000000000010" & "00000" & "000" & "00000"  & "0010011";
         constant second: instr_type := "000000000101"  & "00000" & "000" & "00000" & "0010011" ;
@@ -55,7 +58,7 @@ package body init_pack is
          begin
            --its hard coded for now, for testing
             
-            mem(0):= first(7 downto 0);
+            mem(0):= first(7 downto 0);--TODO: figute out if this is small or big endian
             mem(1):= first(15 downto 8);
             mem(2):= first(23 downto 16);
             mem(3):= first(31 downto 24);
@@ -67,7 +70,12 @@ package body init_pack is
             mem(9):= third(15 downto 8);
             mem(10):= third(23 downto 16);
             mem(11):= third(31 downto 24);
+
+            --now lets try to parse file
             
+            mem := tokenize("../../../../tests/textin.txt", mem);
+            report bitvec_to_hex_string(mem(12));
+            report bitvec_to_hex_string(mem(13));
             return mem;
     end function;
     

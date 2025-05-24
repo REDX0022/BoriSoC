@@ -26,6 +26,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
+library WORK;
+
+
 package def_pack is
     ---------------------Fundemental constants and types------------------------
     constant XLEN: integer := 32; -- to make type conversions bearable these constants will be useless
@@ -37,7 +40,7 @@ package def_pack is
     constant regaddrw: integer := 5; --32 registers
     
     constant maxaddr: integer := 2**addrw-1;
-    constant maxregaddr: integer := 2**regaddrw-1;
+    constant maxregaddr: integer := 2**regaddrw-1; -- WAR: This is redundent with regw
     
     subtype byte_type is bit_vector(7 downto 0);
     subtype word_type is bit_vector(15 downto 0);
@@ -46,6 +49,7 @@ package def_pack is
     subtype data_type is dword_type;
     --type data_type is array (dataw-1 downto 0) of bit;
         subtype reg_type is data_type;
+       
     
     subtype addr_type is word_type; --this makes all constants effectvely useless
     --type addr_type is array (addrw-1 downto 0) of bit;
@@ -67,13 +71,12 @@ package def_pack is
     subtype instr_type is data_type;
     subtype opcode_type is bit_vector(opcodew-1 downto 0); --
     subtype funct3_type is bit_vector(2 downto 0);
-        
+    subtype funct7_type is bit_vector(6 downto 0);
+    subtype reg_addr_type is bit_vector(regaddrw-1 downto 0);
     
     
-    
-   
-     constant OP: opcode_type := "0110011";
-     constant OPIMM: opcode_type := "0010011";
+    constant OP: opcode_type := "0110011";
+    constant OPIMM: opcode_type := "0010011";
         constant ADDf3: funct3_type := "000";
         constant SLTf3: funct3_type := "010";
         constant SLTUf3: funct3_type := "011";
@@ -81,16 +84,18 @@ package def_pack is
         constant ORf3: funct3_type := "110";
         constant ANDf3: funct3_type := "100";
         constant SLLf3: funct3_type := "001"; 
-        constant SRLf3_SRAf3: funct3_type := "101"; --this is gonna have to undergo additional parsing
-     constant LOAD: opcode_type := "0000011";
-     constant JARL: opcode_type := "1100111";
-     constant STORE: opcode_type := "0100011";
-     constant BRANCH: opcode_type := "1100011";
-     constant AUIPC: opcode_type := "0010111";
-     constant LUI: opcode_type := "0110111";
-     constant JAL: opcode_type := "1101111";
-     constant FENCE: opcode_type := "0001111";
-     constant SYSTEM: opcode_type := "1110011";
+        constant SRLf3: funct3_type := "101"; --this is gonna have to undergo additional parsing
+    constant LOAD: opcode_type := "0000011";
+    constant JARL: opcode_type := "1100111";
+    constant STORE: opcode_type := "0100011";
+    constant BRANCH: opcode_type := "1100011";
+    constant AUIPC: opcode_type := "0010111";
+    constant LUI: opcode_type := "0110111";
+    constant JAL: opcode_type := "1101111";
+    constant FENCE: opcode_type := "0001111";
+    constant SYSTEM: opcode_type := "1110011";
+
+    
    
     
     
@@ -118,7 +123,7 @@ package def_pack is
     
     function bitvec_to_bitstring(bv : bit_vector) return string;
     
-    function hexstring_to_bitvector(s : string) return bit_vector;
+    function hexstring_to_bitvec(s : string) return bit_vector;
 
     ----------------------Memory funtions-----------------------------
     function get_byte(addr: addr_type; mem: mem_type) return byte_type; -- does not perfrom extention
@@ -129,7 +134,8 @@ package def_pack is
     ----------------------ALU functions-------------------------------
     function max(a,b:integer) return integer;--TODO: Get this to some other package, its such a stupid funciton
     function "+"(a, b : bit_vector) return bit_vector;
-    function flipbv(bv: bit_vector) return bit_vector;
+    function slice_msb(bv : bit_vector) return bit_vector;
+    
 end def_pack;
     
     
@@ -231,7 +237,7 @@ package body def_pack is
         return result;
     end function;
 
-    function hexstring_to_bitvector(s : string) return bit_vector is
+    function hexstring_to_bitvec(s : string) return bit_vector is
     variable result : bit_vector(s'length * 4 - 1 downto 0);
     variable nibble : bit_vector(3 downto 0);
         begin
@@ -377,13 +383,17 @@ package body def_pack is
         return sum;
     end function;
 
-    function flipbv(bv: bit_vector) return bit_vector is --begin with 0
-        variable res: bit_vector(bv'length-1 downto 0);
-        begin
-            for i in 0 to bv'length-1 loop
-                res(bv'length-1) := bv(i);
-            end loop;
-            return res;
+    function slice_msb(bv : bit_vector) return bit_vector is
+    variable result : bit_vector(bv'length - 2 downto 0);
+    variable index  : integer := bv'length-2;
+    begin
+        for i in bv'range loop
+            if i /= bv'left then  -- skip the MSB
+                result(index) := bv(i);
+                index := index -1;
+            end if;
+        end loop;
+        return result;
     end function;
 
     

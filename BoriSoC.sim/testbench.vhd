@@ -29,7 +29,7 @@ architecture TB of testbench is
         );
         process 
         begin
-
+            
         end process;
 
 end architecture;

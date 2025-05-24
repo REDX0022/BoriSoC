@@ -1,0 +1,4 @@
+@ 000C
+ADDI x0 x1 00F
+ADDI x1 x0 001
+VAL 0C 

@@ -21,6 +21,7 @@ open_project BoriSoC.xpr
 
 add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
+add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd
 
 
 launch_simulation -mode behavioral

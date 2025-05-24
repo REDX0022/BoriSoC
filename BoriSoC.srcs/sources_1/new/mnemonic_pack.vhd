@@ -1,0 +1,70 @@
+
+library WORK;
+use WORK.def_pack.all;
+
+--naming convention should be m suffix for mnemonic
+--TODO: Finish the mnemonics
+package mnemonic_pack is
+
+
+
+
+    constant mnem_len: integer := 6;
+    subtype mnemonic_type is string(1 to mnem_len);
+    constant addr_identifierm: mnemonic_type := "@     ";
+    constant VALm: mnemonic_type := "VAL   ";
+    constant ADDIm: mnemonic_type := "ADDI  ";
+    constant SLTIm: mnemonic_type := "SLTI  ";
+
+    function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
+    function decode_regm(name : string) return reg_addr_type;
+end package;
+
+
+-- naming functinos after opcodes means there will be duplicates, but that is file for now 
+package body mnemonic_pack is
+    function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
+        begin
+        return (imm110 & rs1 & funct3 & rd & opcode);
+    end function;
+
+    function decode_regm(name : string) return reg_addr_type is
+        begin
+        case name is
+            when "x0"  => return "00000";
+            when "x1"  => return "00001";
+            when "x2"  => return "00010";
+            when "x3"  => return "00011";
+            when "x4"  => return "00100";
+            when "x5"  => return "00101";
+            when "x6"  => return "00110";
+            when "x7"  => return "00111";
+            when "x8"  => return "01000";
+            when "x9"  => return "01001";
+            when "x10" => return "01010";
+            when "x11" => return "01011";
+            when "x12" => return "01100";
+            when "x13" => return "01101";
+            when "x14" => return "01110";
+            when "x15" => return "01111";
+            when "x16" => return "10000";
+            when "x17" => return "10001";
+            when "x18" => return "10010";
+            when "x19" => return "10011";
+            when "x20" => return "10100";
+            when "x21" => return "10101";
+            when "x22" => return "10110";
+            when "x23" => return "10111";
+            when "x24" => return "11000";
+            when "x25" => return "11001";
+            when "x26" => return "11010";
+            when "x27" => return "11011";
+            when "x28" => return "11100";
+            when "x29" => return "11101";
+            when "x30" => return "11110";
+            when "x31" => return "11111";
+            when others => report "Invalid register name: " & name severity error;
+        end case;
+        return  "00000";  -- return something to satisfy compiler
+    end function;
+end package body;

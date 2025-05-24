@@ -1,6 +1,8 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../BoriSoC.srcs/sources_1/new/def_pack.vhd" \
+"../../../../BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" \
+"../../../../BoriSoC.srcs/sources_1/new/IO_pack.vhd" \
 "../../../../BoriSoC.srcs/sources_1/new/init_pack.vhd" \
 "../../../../BoriSoC.srcs/sources_1/new/SoC.vhd" \
 
