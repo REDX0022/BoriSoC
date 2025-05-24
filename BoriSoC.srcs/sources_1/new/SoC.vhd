@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 library WORK;
 use WORK.def_pack.all;
@@ -28,23 +29,28 @@ use WORK.init_pack.all;
 use WORK.mnemonic_pack.all;
 use WORK.IO_pack.all;
 
+library STD;
+use STD.TEXTIO.all;
+
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
 
 
 
 entity SoC is
     port(
-        fileIN: in mem_type; --TODO: serialize this for god sakes, too big signals, makes no sense , vhdl warns
-        dumpOUT: out mem_type;
-        traceOUT: out mem_type --here is mem_type used creatlivly because we dont have vairable length arrays in vhdl
-    
+        mem_in: in mem_type; 
+        mem_out: out mem_type;
+        instr_out: out instr_type;
+        PC_out: out pc_type
+        --Might want to add a register dump output
     );
 
 end SoC;
 
 architecture functional of SoC is
+
+    
    
 begin
 
@@ -80,14 +86,20 @@ begin
     variable temp2: bit_vector(16 downto 0);
     variable temp3: bit_vector(8 downto 0);
     variable temp4: bit_vector(15 downto 0);
+    ---TEMPORARY TRACE FILE: MOVE TO tesetbench
+    -- file declaration moved outside process
+    
     begin
-        
         --initalize everything
-        mem := init_mem;
-        loop 
-            --FETCH instrction
+        wait on mem_in;
+        mem := mem_in; --get the memory from the input signal
+        
+        CPU_loop: loop 
+        --FETCH instrction
             instr := get_dword(PC,mem);
-
+        
+            instr_out <= instr; --output the instruction
+            PC_out <= PC; --output the program counter
             
             --report "The value of 'a' is " & integer'image(to_integer(temp2(15 downto 0)));
             report "instruction fetched @ " & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
@@ -137,11 +149,14 @@ begin
                       case funct3 is
                         when ADDf3 => --ADDI
                             --report "GOT INTO ADDI";
+                            
                             report "imm is " & bitvec_to_bitstring(imm110) & " or in intger form " &integer'image(bv_to_integer(imm110));
                            
                             
 
                             regs(bv_to_integer(rd)):= slice_msb(regs(bv_to_integer(rs1)) + signext_bv2dw(imm110)); -- has to use meesy temp variables, +1 downside
+                            --add error checking here
+                        
                         when SLTf3 =>
                              
                         when others=>
@@ -160,23 +175,21 @@ begin
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here
-                    dump_memory("../../../../tests/dump.txt", mem); --TODO: make this a proc
+                    exit CPU_loop;
+                    
                     --traceOUT <= mem; --TODO: make this a proc
                     --dumpOUT <= mem; --TODO: make this a proc
-                    WAIT;
                     --lets do a reg dump here
-                    
             end case;
-            temp2 := PC + X"0004"; --TODO: Impelement an incr function, fml;
-            --report "after increment temp2 is"  & bitvec_to_bitstring(temp2) & " or in intger form " &integer'image(bv_to_integer(temp2));
-            
-            PC:= slice_msb(PC+X"0004");-- dont ask why it is 15 downto 1
-            report "Value of x0 and x1";
+                    
+                    PC:= slice_msb(PC+X"0004");-- dont ask why it is 15 downto 1
+                    report "Value of x0 and x1";
                     report bitvec_to_bitstring(regs(0));
                     report bitvec_to_bitstring(regs(1));
-            --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
-            
-            
+                    --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
+                    
+            wait for 10 ns; 
         end loop;
+        mem_out <= mem; --output the memory state
     end process;
 end functional;

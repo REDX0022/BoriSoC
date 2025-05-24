@@ -1,4 +1,3 @@
-
 # should clean the uselss files
 puts "Cleaning Vivado backup and simulation files..."
 
@@ -23,5 +22,6 @@ add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
 add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd
 
+#set_property top testbench [get_filesets sim_1]
 
 launch_simulation -mode behavioral

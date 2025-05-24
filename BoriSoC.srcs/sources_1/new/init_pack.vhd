@@ -48,15 +48,9 @@ package body init_pack is
    --TODO: Init memory with the text file.
    function init_mem return mem_type is
         variable mem: mem_type := (others => X"00");
-        
-
-        
-
-         begin
+        begin
           
             mem := tokenize("../../../../tests/textin.txt", mem);
-            report bitvec_to_hex_string(mem(12));
-            report bitvec_to_hex_string(mem(13));
             return mem;
     end function;
     

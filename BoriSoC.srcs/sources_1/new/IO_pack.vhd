@@ -23,6 +23,14 @@ package IO_pack is
         token_len     : out integer;
         end_of_line   : out boolean
     );
+    procedure trace_OPIMM(
+        opcodem : mnemonic_type;
+        rd      : reg_addr_type;
+        rs1     : reg_addr_type;
+        imm110  : bit_vector(11 downto 0);
+        PC      : addr_type;
+        f       : inout text
+    );
 end package;
 
 
@@ -208,5 +216,19 @@ package body IO_pack is
         file_close(outfile);
     end procedure;
 
+
+    -----------------------------------------------Tracing-----------------------------------
+    procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; f: inout text) is
+        variable l: line := null;
+    begin
+        report "OPIMM called";
+        
+        write(l, opcodem & ' ');
+        write(l, decode_reg_addr(rd) & ' ');
+        write(l, decode_reg_addr(rs1) & ' ');
+        write(l, bitvec_to_hex_string(imm110) & " @ ");
+        write(l, bitvec_to_hex_string(PC));
+        writeline(f, l);
+    end procedure;
     
 end package body;
