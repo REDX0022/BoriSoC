@@ -1,4 +1,3 @@
-
 library STD;
 use STD.TEXTIO.all;
 
@@ -16,6 +15,7 @@ package IO_pack is
 
     impure function tokenize(filepath: string; mem: mem_type) return mem_type;
     procedure parse_line(tokens: tokens_type; tokens_len: tokens_len_type; token_count : integer; mem: inout mem_type; curr_addr: inout addr_type);
+    procedure dump_memory(filename: in string; mem: in mem_type);
 end package;
 
 
@@ -147,6 +147,30 @@ package body IO_pack is
                 
     end procedure;
 
+    procedure dump_memory(filename: in string; mem: in mem_type) is
+        file outfile : text;
+        variable outline : line;
+        variable byte_str : string(1 to 2);
+    begin
+        -- Explicitly open in write_mode to clear/truncate the file
+        file_open(outfile, filename, write_mode);
+        for i in mem'range loop
+            if (i mod 4 = 0) then
+                if i /= mem'low then
+                    writeline(outfile, outline);
+                end if;
+                outline := null;
+            end if;
+            byte_str := bitvec_to_hex_string(mem(i));
+            write(outline, byte_str);
+            if (i mod 4 /= 3) then
+                write(outline, string'(" "));
+            end if;
+        end loop;
+        if outline'length > 0 then
+            writeline(outfile, outline);
+        end if;
+        file_close(outfile);
+    end procedure;
 
-    
 end package body;

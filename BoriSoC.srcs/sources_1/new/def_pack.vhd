@@ -58,10 +58,10 @@ package def_pack is
     
         
     
-    type regs_type is array (maxregaddr downto 0) of  reg_type; -- beware of difference between regs_type and reg_type
+    type regs_type is array (0 to maxregaddr) of  reg_type; -- beware of difference between regs_type and reg_type
     
     
-    type mem_type is array(maxaddr downto 0) of byte_type;
+    type mem_type is array(0 to maxaddr) of byte_type;
 
     --type IO_type is array(integer <>) of byte_type;
     

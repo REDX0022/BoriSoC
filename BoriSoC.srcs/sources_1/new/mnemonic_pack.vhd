@@ -1,4 +1,3 @@
-
 library WORK;
 use WORK.def_pack.all;
 
@@ -67,4 +66,47 @@ package body mnemonic_pack is
         end case;
         return  "00000";  -- return something to satisfy compiler
     end function;
+ 
+    -- Function to decode a register address from a 5-bit binary string to its corresponding register name
+    -- This function assumes the register addresses are in the range of "00000" to "11111"
+    function decode_reg_addr(addr : reg_addr_type) return string is
+        begin
+            case addr is
+                when "00000" => return "x0";
+                when "00001" => return "x1";
+                when "00010" => return "x2";
+                when "00011" => return "x3";
+                when "00100" => return "x4";
+                when "00101" => return "x5";
+                when "00110" => return "x6";
+                when "00111" => return "x7";
+                when "01000" => return "x8";
+                when "01001" => return "x9";
+                when "01010" => return "x10";
+                when "01011" => return "x11";
+                when "01100" => return "x12";
+                when "01101" => return "x13";
+                when "01110" => return "x14";
+                when "01111" => return "x15";
+                when "10000" => return "x16";
+                when "10001" => return "x17";
+                when "10010" => return "x18";
+                when "10011" => return "x19";
+                when "10100" => return "x20";
+                when "10101" => return "x21";
+                when "10110" => return "x22";
+                when "10111" => return "x23";
+                when "11000" => return "x24";
+                when "11001" => return "x25";
+                when "11010" => return "x26";
+                when "11011" => return "x27";
+                when "11100" => return "x28";
+                when "11101" => return "x29";
+                when "11110" => return "x30";
+                when "11111" => return "x31";
+                when others => report "Invalid register address: " & bitvec_to_bitstring(addr) severity error;
+            end case;
+            return "x0"; -- default return to satisfy compiler
+        end function;
+    
 end package body;

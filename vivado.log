@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sat May 24 16:45:22 2025
-# Process ID         : 24208
+# Start of session at: Sat May 24 17:15:30 2025
+# Process ID         : 31120
 # Current directory  : C:/Users/ceran/Documents/BoriSoC/BoriSoC
 # Command line       : vivado.exe -mode batch -source sim.tcl
 # Log file           : C:/Users/ceran/Documents/BoriSoC/BoriSoC/vivado.log
@@ -19,7 +19,7 @@
 # Host memory        : 17086 MB
 # Swap memory        : 1178 MB
 # Total Virtual      : 18264 MB
-# Available Virtual  : 6134 MB
+# Available Virtual  : 5560 MB
 #-----------------------------------------------------------
 source sim.tcl
 # puts "Cleaning Vivado backup and simulation files..."
@@ -36,13 +36,13 @@ Cleaning Vivado backup and simulation files...
 #     puts "Deleting $f"
 #     file delete -force $f
 # }
-Deleting vivado_29224.backup.jou
-Deleting vivado_29224.backup.log
+Deleting vivado_24000.backup.jou
+Deleting vivado_24000.backup.log
 # open_project BoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.395 ; gain = 191.520
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 621.270 ; gain = 193.777
 # add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
@@ -62,9 +62,10 @@ INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xvhdl --incr --relax -prj SoC_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" into library xil_defaultlib
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/IO_pack.vhd" into library xil_defaultlib
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd" into library xil_defaultlib
-WARNING: [VRFC 10-3165] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd:76]
+WARNING: [VRFC 10-3165] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd:57]
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'SoC'
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
@@ -92,7 +93,7 @@ Compiling package xil_defaultlib.io_pack
 Compiling package xil_defaultlib.init_pack
 Compiling architecture functional of entity xil_defaultlib.soc
 Built simulation snapshot SoC_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -115,122 +116,62 @@ WARNING: [Wavedata 42-489] Can't add object "/SoC/traceOUT" to the wave window b
 INFO: [Wavedata 42-43] There are no traceable objects to add.
 ## run 1000ns
 Note: A number of tokens was found2
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: @S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 000CS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: x0S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: x1S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00FS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Put ADDI @000C
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: x1S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: x0S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 001S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Put ADDI @0010
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: A number of tokens was found2
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: VALS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 0CS
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note:   S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note:    S
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Put VAL @0014
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 13
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 80
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: instruction fetched @ 0000000000000000 or in intger form 0
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000000000000000010011
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: imm is 000000000010 or in intger form 2
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000010
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: instruction fetched @ 0000000000000100 or in intger form 4
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100000000000000010011
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: imm is 000000000101 or in intger form 5
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000111
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: instruction fetched @ 0000000000001000 or in intger form 8
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000100000000000010010011
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: imm is 000000000001 or in intger form 1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000111
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000001000
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: instruction fetched @ 0000000000001100 or in intger form 12
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000111100001000000000010011
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: imm is 000000001111 or in intger form 15
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000010111
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000001000
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: instruction fetched @ 0000000000010000 or in intger form 16
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000100000000000010010011
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: imm is 000000000001 or in intger form 1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000010111
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000011000
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: instruction fetched @ 0000000000010100 or in intger form 20
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000001100
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Error: illegal insruction
-Time: 0 ps  Iteration: 0  Process: /SoC/line__51  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 0 ps  Iteration: 0  Process: /SoC/line__52  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'SoC_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 644.691 ; gain = 24.297
-INFO: [Common 17-206] Exiting Vivado at Sat May 24 16:45:47 2025...
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 645.117 ; gain = 23.848
+INFO: [Common 17-206] Exiting Vivado at Sat May 24 17:15:57 2025...

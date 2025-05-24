@@ -26,6 +26,7 @@ library WORK;
 use WORK.def_pack.all;
 use WORK.init_pack.all;
 use WORK.mnemonic_pack.all;
+use WORK.IO_pack.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -159,7 +160,9 @@ begin
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here
-                    
+                    dump_memory("../../../../tests/dump.txt", mem); --TODO: make this a proc
+                    --traceOUT <= mem; --TODO: make this a proc
+                    --dumpOUT <= mem; --TODO: make this a proc
                     WAIT;
                     --lets do a reg dump here
                     
