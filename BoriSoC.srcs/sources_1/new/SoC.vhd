@@ -101,7 +101,8 @@ architecture functional of SoC is
         wait for 10 ns;
         mem := mem_in; --get the memory from the input signal
         
-
+        report "SUB testing";
+        report bitvec_to_hex_string(slice_lsb(X"000007FF" - X"FFFFFF800")) severity note;
         CPU_loop: loop 
          
             
@@ -116,7 +117,7 @@ architecture functional of SoC is
             
             
             report "instruction fetched @ " & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
-     
+            
             report bitvec_to_bitstring(instr);
             
 
@@ -147,8 +148,27 @@ architecture functional of SoC is
             
             --EXECUTE instruction
             case code is
-                when OP => 
-
+                when OP =>
+                    if(rd /= "00000") then --THIS already takes care of the NOP instruction, just not interpreted yet
+                        case funct3 is
+                            when ADDf3 =>
+                                case funct7 is
+                                    when ADDf7 => --ADD
+                                        --report "GOT INTO ADD";
+                                        regs(bv_to_integer(rd)) := slice_msb(regs(bv_to_integer(rs1)) + regs(bv_to_integer(rs2))); 
+                                    when SUBf7 => --SUB
+                                        --report "GOT INTO SUB";
+                                        regs(bv_to_integer(rd)) := slice_lsb(regs(bv_to_integer(rs1)) - regs(bv_to_integer(rs2))); --TODO: Implement subtraction, also 
+                                    when others =>
+                                        report "illegal insruction in ADD and SUB" severity error; --also print to trace here
+                                        exit CPU_loop;
+                                end case;
+                                when others => --THIS WILL NEVER HAPPEN
+                                    report "illegal insruction in OP " severity error; --also print to trace here
+                                    exit CPU_loop;
+                        end case;
+                    
+                    end if;
                 when OPIMM =>
                     if(rd /= "00000") then
                         --report "GOT INTO OPIMM";
@@ -194,8 +214,8 @@ architecture functional of SoC is
                             regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_integer(imm40_I);
                         when SRL_Af3 =>
                             if(instr(30) = '1') then --too nieche to make a separeate variable
-                                report "GOT INTO SRAI";       
-                                report "SHIFTING BY " & integer'image(bv_to_integer(imm40_I));
+                                --report "GOT INTO SRAI";       
+                                --report "SHIFTING BY " & integer'image(bv_to_integer(imm40_I));
                                 regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(imm40_I);
                             else
                                 --report "GOT INTO SRLI";       

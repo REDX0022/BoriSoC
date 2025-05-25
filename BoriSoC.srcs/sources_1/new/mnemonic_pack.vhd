@@ -21,10 +21,24 @@ package mnemonic_pack is
     constant SLLIm: mnemonic_type := "SLLI  ";
     constant SRLIm: mnemonic_type := "SRLI  ";
     constant SRAIm: mnemonic_type := "SRAI  ";
+
     constant LUIm: mnemonic_type := "LUI   ";
+
     constant AUIPCm: mnemonic_type := "AUIPC ";
+    
+    constant ADDm: mnemonic_type := "ADD   ";
+    constant SUBm: mnemonic_type := "SUB   ";
+    constant SLTm: mnemonic_type := "SLT   ";
+    constant SLTUm: mnemonic_type := "SLTU  ";
+    constant ANDm: mnemonic_type := "AND   ";
+    constant ORm: mnemonic_type := "OR    ";
+    constant XORm: mnemonic_type := "XOR   ";
+    constant SLLm: mnemonic_type := "SLL   ";
+    constant SRLm: mnemonic_type := "SRL   ";
+    constant SRAm: mnemonic_type := "SRA   ";
 
 
+    function construct_OP(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type;
     function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
     function construct_LUI(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
     function construct_AUIPC(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
@@ -35,6 +49,11 @@ package mnemonic_pack is
     
     -- naming functinos after opcodes means there will be duplicates, but that is file for now 
 package body mnemonic_pack is
+
+    function construct_OP(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type is
+        begin
+            return (funct7 & rs2 & rs1 & funct3 & rd & opcode);
+    end function;
 
     function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
         begin
@@ -52,6 +71,7 @@ package body mnemonic_pack is
         begin
             return (imm3112 & rd & opcode);
     end function;
+
 
     function decode_regm(name : string) return reg_addr_type is
         begin

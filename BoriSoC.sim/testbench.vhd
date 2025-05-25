@@ -132,8 +132,47 @@ architecture TB of testbench is
                 imm1912 := instr_trace(19 downto 12);
                 case code is
                     when OP =>
-                        report "OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle OP instructions here
+                        case funct3 is
+                            when ADDf3 =>
+                                case funct7 is
+                                    when ADDf7 =>
+                                        instrm := ADDm;
+                                        -- Handle ADD instructions here
+                                    when SUBf7 =>
+                                        instrm := SUBm;
+                                        -- Handle SUB instructions here
+                                    when others =>
+                                        report "Unknown funct7 for ADD: " & bitvec_to_bitstring(instr_trace);
+                                        exit test_loop; -- Exit the loop on unknown funct7
+
+                                end case;
+                                -- Handle ADD instructions here
+                                
+                            when SLTf3 =>
+                                instrm := SLTm;
+                                -- Handle SLT instructions here
+                            when SLTUf3 =>
+                                instrm := SLTUm;
+                                -- Handle SLTU instructions here
+                            when ANDf3 =>
+                                instrm := ANDm;
+                                -- Handle AND instructions here
+                            when ORf3 =>
+                                instrm := ORm;
+                                -- Handle OR instructions here
+                            when XORf3 =>
+                                instrm := XORm;
+                                -- Handle XOR instructions here
+                            when SLLf3 =>
+                                instrm := SLLm;
+                                -- Handle SLL instructions here
+                            when SRL_Af3 =>
+                            when others =>
+                                    report "Unknown funct3 for OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                                    exit test_loop; -- Exit the loop on unknown funct3
+                        end case;
+                        trace_OP(instrm, rd, rs1, rs2, PC_trace, regs_trace, trace_f);
+
                     when OPIMM =>
                     case funct3 is
                         when ADDf3 =>

@@ -23,6 +23,15 @@ package IO_pack is
         token_len     : out integer;
         end_of_line   : out boolean
     );
+    procedure trace_OP(
+        opcodem : mnemonic_type;
+        rd      : reg_addr_type;
+        rs1     : reg_addr_type;
+        rs2     : reg_addr_type;
+        PC      : addr_type;
+        regs    : regs_type;
+        f       : inout text
+    );
     procedure trace_OPIMM(
         opcodem : mnemonic_type;
         rd      : reg_addr_type;
@@ -248,7 +257,32 @@ package body IO_pack is
                     mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
                     mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
-            
+            when ADDm | SUBm | SLTm | SLTUm | ANDm | ORm | XORm | SLLm | SRLm | SRAm=>
+                    code := OP;
+                    case tokens(0)(1 to 6) is
+                        when ADDm => funct3 := ADDf3; funct7 := "0000000";
+                        when SUBm => funct3 := ADDf3; funct7 := "0100000"; -- this is a special case
+                        when SLTm => funct3 := SLTf3; funct7 := "0000000";
+                        when SLTUm => funct3 := SLTUf3; funct7 := "0000000";
+                        when ANDm => funct3 := ANDf3; funct7 := "0000000";
+                        when ORm => funct3 := ORf3; funct7 := "0000000";
+                        when XORm => funct3 := XORf3; funct7 := "0000000";
+                        when SLLm => funct3 := SLLf3; funct7 := "0000000";
+                        when SRLm => funct3 := SRL_Af3; funct7 := "0000000"; -- this is a special case
+                        when SRAm => funct3 := SRL_Af3; funct7 := "0100000"; -- this is a special case
+                        when others => report "Found illegal mnemonic in OP"; --NEVER HAPPENS
+                    end case;
+                    rd := decode_regm(tokens(1)(1 to tokens_len(1)));
+                    rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
+                    rs2 := decode_regm(tokens(3)(1 to tokens_len(3)));
+                    instr := construct_OP(code, rd, funct3, rs1, rs2, funct7);
+                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
+                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
+                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
+                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
+            when SLLm | SRLm | SRAm =>
+                        
             when others =>
                     report "Found illegal/comment line line";
         end case;
@@ -285,6 +319,22 @@ package body IO_pack is
 
 
     -----------------------------------------------Tracing-----------------------------------
+
+    procedure trace_OP(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; rs2: reg_addr_type; PC: addr_type; regs: regs_type; f: inout text) is
+        variable l: line := null;
+        begin
+            write(l, opcodem & ' ');
+            write(l, decode_reg_addr(rd) & ' ');
+            write(l, decode_reg_addr(rs1) & ' ');
+            write(l, decode_reg_addr(rs2) & ' ');
+            write(l, bitvec_to_hex_string(PC) & ' ');
+            for i in regs'range loop
+                --write(l, "x" & integer'image(i) & ": "); this will be in the header
+                write(l, bitvec_to_hex_string(regs(i)) & ' ');
+            end loop;
+            writeline(f, l);
+    end procedure;
+
     procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
         variable l: line := null;
     begin
