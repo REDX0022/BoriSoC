@@ -1,4 +1,8 @@
 @ 0000
-ADDI x0 x1 00F
-ADDI x1 x0 001
-VAL 0C 
+ADDI x1 x0 005   ; x1 = 0 + 5 = 5
+SLTI x0 x1 010   ; x0 = (5 < 16) ? 1 : 0 = 1 (but x0 stays 0)
+SLTI x1 x1 010   ; x1 = (5 < 16) ? 1 : 0 = 1
+SLTIU x1 x1 0FF  ; x1 = (1 < 255 unsigned) ? 1 : 0 = 1
+ANDI x1 x1 001   ; x1 = 1 and 1 = 1
+ORI  x1 x1 002   ; x1 = 1 or 2 = 3
+XORI x1 x1 007   ; x1 = 3 xor 7 = 4

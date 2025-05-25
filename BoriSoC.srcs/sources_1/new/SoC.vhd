@@ -69,6 +69,7 @@ begin
         variable imm110: bit_vector(11 downto 0); 
         variable imm115: bit_vector(6 downto 0);
         variable imm40: bit_vector(4 downto 0);
+        variable imm40_I: bit_vector(4 downto 0); 
         variable imm12: bit;
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
@@ -101,19 +102,11 @@ begin
             instr_out <= instr; --output the instruction
             PC_out <= PC; --output the program counter
             
-            --report "The value of 'a' is " & integer'image(to_integer(temp2(15 downto 0)));
+            
             report "instruction fetched @ " & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
      
             report bitvec_to_bitstring(instr);
-            --temp4 := X"0004";
-            --report "constant and + checking";
-            --report "4 is from hex" & bitvec_to_bitstring(X"0004") & " or in intger form " &integer'image(bv_to_integer(X"0004"));
-            --report "4 is from bin" & bitvec_to_bitstring("0000000000000100") & " or in intger form " &integer'image(bv_to_integer("0000000000000100"));
-            --report "and from variable" & bitvec_to_bitstring(temp4) & " or in intger form " &integer'image(bv_to_integer(temp4));
-            --report "adds up to " & bitvec_to_bitstring(X"0004"+X"0002") & " or in intger form " &integer'image(bv_to_integer(X"0004"+X"0002"));
-            --report "adds up to " & bitvec_to_bitstring(temp4+X"0004") & " or in intger form " &integer'image(bv_to_integer(temp4+X"0004"));
-            --WAIT;
-         
+            
 
             code := instr(6 downto 0);
             rd := instr(11 downto 7);
@@ -124,6 +117,7 @@ begin
             imm110 := instr(31 downto 20);
             imm115 := instr(31 downto 25);
             imm40 := instr(11 downto 7);
+            imm40_I := instr(24  downto 20); --TODO: check the imm
             imm12 := instr(31);
             imm105 := instr(30 downto 25);
             imm41 := instr(11 downto 8);
@@ -137,32 +131,69 @@ begin
             
            
             
-            --code := instr(opcodew downto 0); --theese types are getting complicated
-            --parse everything then use something, dont know how well that will syntesise tho
+           
             
             --EXECUTE instruction
             case code is
                 when OP => 
                     
                 when OPIMM =>
+                    if(rd /= "00000") then
                         --report "GOT INTO OPIMM";
                       case funct3 is
                         when ADDf3 => --ADDI
                             --report "GOT INTO ADDI";
                             
-                            report "imm is " & bitvec_to_bitstring(imm110) & " or in intger form " &integer'image(bv_to_integer(imm110));
+                            --report "imm is " & bitvec_to_bitstring(imm110) & " or in intger form " &integer'image(bv_to_integer(imm110));
                            
                             
-
+                        
                             regs(bv_to_integer(rd)):= slice_msb(regs(bv_to_integer(rs1)) + signext_bv2dw(imm110)); -- has to use meesy temp variables, +1 downside
                             --add error checking here
                         
                         when SLTf3 =>
-                             
-                        when others=>
+                            --report "GOT INTO SLTI";
+                            report "Integers to be compeered are SLTI " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            if (bv_to_signed_integer(regs(bv_to_integer(rs1))) < bv_to_signed_integer(signext_bv2dw(imm110))) then -- ERROR HERE
+                                regs(bv_to_integer(rd)) := X"00000001";
+                            else
+                                regs(bv_to_integer(rd)) := X"00000000";
+                            end if;
+                        when SLTUf3 => -- the imm is first SIGN extended and the treated as unsigned
+                            --report "GOT INTO SLTUI";
+
+                            report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            if (bv_to_integer(regs(bv_to_integer(rs1))) < bv_to_integer(signext_bv2dw(imm110))) then
+                                regs(bv_to_integer(rd)) := X"00000001";
+                            else
+                                regs(bv_to_integer(rd)) := X"00000000";
+                            end if;
+                        when ANDf3 =>
+                            --report "GOT INTO ANDI";       
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) and signext_bv2dw(imm110);
+                        when ORf3 =>
+                            --report "GOT INTO ORI";       
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) or signext_bv2dw(imm110);
+                        when XORf3 =>
+                            --report "GOT INTO XORI";       
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) xor signext_bv2dw(imm110);
+                        when SLLf3 => --TODO: check the imm
+                            --report "GOT INTO SLLI";       
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_integer(imm40_I);
+                        when SRL_Af3 =>
+                            if(instr(30) = '1') then --too nieche to make a separeate variable
+                                --report "GOT INTO SRAI";       
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(imm40_I);
+                            else
+                                --report "GOT INTO SRLI";       
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_integer(imm40_I);
+                            end if;
+                            
+                        
+                        when others=> --THIS WILL NEVER HAPPEN
                                 report "illegal insruction" severity error;
                        end case;
-                      
+                    end if;
                             
                 when LOAD =>
                 when JARL =>

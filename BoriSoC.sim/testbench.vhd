@@ -68,6 +68,7 @@ architecture TB of testbench is
         variable imm110: bit_vector(11 downto 0); 
         variable imm115: bit_vector(6 downto 0);
         variable imm40: bit_vector(4 downto 0);
+        variable imm40_I: bit_vector(4 downto 0);
         variable imm12: bit;
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
@@ -97,6 +98,7 @@ architecture TB of testbench is
                 imm110  := instr_trace(31 downto 20);
                 imm115  := instr_trace(31 downto 25);
                 imm40   := instr_trace(11 downto 7);
+                imm40_I := instr_trace(24  downto 20); --TODO: check the imm
                 imm12   := instr_trace(31);
                 imm105  := instr_trace(30 downto 25);
                 imm41   := instr_trace(11 downto 8);
@@ -112,13 +114,31 @@ architecture TB of testbench is
                         when ADDf3 =>
                                 instrm := ADDIm;
                                 -- Handle ADD instructions here
+                            
                             when SLTf3 =>
                                 instrm := SLTIm;
-                                --report "SLT instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                                -- Handle SLT instructions here
+                                -- Handle SLTI instructions here
+                            when SLTUf3 =>
+                                instrm := SLTIUm;
+                                -- Handle SLTIU instructions here
+                            when ANDf3 =>
+                                instrm := ANDIm;
+                                -- Handle ANDI instructions here
+                            when ORf3 =>
+                                instrm := ORIm;
+                                -- Handle ORI instructions here
+                            when XORf3 =>
+                                instrm := XORIm;
+                                -- Handle XORI instructions here
+                            when SLLf3 =>
+                                instrm := SLLIm;
+                                -- Handle SLLI instructions here
+                            when SRL_Af3 =>
+                                instrm := SRLIm;
+                                -- Handle SRLI instructions here
                             when others =>
+                                report "Unknown OPIMM instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                 exit test_loop; -- Exit the loop on unknown funct3
-                                --report "Unknown OPIMM instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle OPIMM instructions here
                         end case;
                         trace_OPIMM(instrm, rd, rs1, imm110, PC_trace,trace_f);

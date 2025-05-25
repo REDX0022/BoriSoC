@@ -82,9 +82,9 @@ package def_pack is
         constant SLTUf3: funct3_type := "011";
         constant XORf3: funct3_type := "100";
         constant ORf3: funct3_type := "110";
-        constant ANDf3: funct3_type := "100";
+        constant ANDf3: funct3_type := "111";
         constant SLLf3: funct3_type := "001"; 
-        constant SRLf3: funct3_type := "101"; --this is gonna have to undergo additional parsing
+        constant SRL_Af3: funct3_type := "101"; --this is gonna have to undergo additional parsing
     constant LOAD: opcode_type := "0000011";
     constant JARL: opcode_type := "1100111";
     constant STORE: opcode_type := "0100011";
@@ -116,7 +116,8 @@ package def_pack is
     --function to_addr(data: data_type) return addr_type;
     function to_integer(addr: addr_type) return integer;
     function bv_to_integer(bv: bit_vector) return integer;
-     
+    function bv_to_signed_integer(bv : bit_vector) return integer;
+
     function signext_bv2dw(bv: bit_vector) return dword_type;
 
     function bitvec_to_hex_string(bv : bit_vector) return string;
@@ -192,6 +193,41 @@ package body def_pack is
         
         return result;
     end function;
+    
+    function bv_to_signed_integer(bv : bit_vector) return integer is
+    variable result : integer := 0;
+    variable exp : integer := 0;
+    variable msb : integer;
+    begin
+        -- Find the MSB index
+        msb := bv'left;
+
+        -- If MSB is '1', it's negative (two's complement)
+        if bv(msb) = '1' then
+            -- Compute two's complement: invert and add 1
+            for i in bv'range loop
+                if i = msb then
+                    -- skip MSB for magnitude
+                    null;
+                elsif bv(i) = '0' then
+                    result := result + 2**exp;
+                end if;
+                exp := exp + 1;
+            end loop;
+            return -(result + 1);
+        else
+            -- Positive number
+            exp := bv'length - 1;
+            for i in bv'range loop
+                if bv(i) = '1' then
+                    result := result + 2**exp;
+                end if;
+                exp := exp - 1;
+            end loop;
+            return result;
+        end if;
+    end function;
+    
 
 
 
@@ -299,17 +335,33 @@ package body def_pack is
         return X"0000" & word;
      end function;
      
-     function signext_bv2dw(bv: bit_vector) return dword_type is
-        variable res: dword_type;
-        begin
-        for i in 31 downto bv'length loop
-            res(i):=bv(bv'left);
-        end loop;
-        for i in bv'length-1 downto 0 loop
-            res(i):=bv(i);
-        end loop;
-        return res;
-     end function;
+    function signext_bv2dw(bv: bit_vector) return dword_type is
+       variable res: dword_type := X"00000000";
+       variable sign_bit: bit := '0';
+       variable i: integer;
+       variable res_idx: integer := bv'length -1; -- Index for result vector
+    begin
+       -- Sign-extend bit_vector to dword_type (32 bits)
+       if bv'length = 0 then
+          return res;
+       end if;
+
+       sign_bit := bv(bv'left);
+
+    -- Copy input bits to LSB of result using a separate index for res
+   
+    for i in bv'range loop
+       res(res_idx) := bv(i);
+       res_idx := res_idx - 1;
+    end loop;
+
+       -- Sign-extend if input is shorter than 32 bits
+       for i in bv'length to 31 loop
+          res(i) := sign_bit;
+       end loop;
+
+       return res;
+    end function;
      
      
     

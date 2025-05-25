@@ -143,6 +143,7 @@ package body IO_pack is
         variable imm110: bit_vector(11 downto 0); 
         variable imm115: bit_vector(6 downto 0);
         variable imm40: bit_vector(4 downto 0);
+        
         variable imm12: bit;
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
@@ -168,20 +169,46 @@ package body IO_pack is
                         curr_addr := slice_msb(curr_addr+X"0001");
                         
                     end loop;
-            when ADDIm => --TODO: check aligmnment with XALLIGN
-                    report "Put ADDI @" & bitvec_to_hex_string(curr_addr);
+            --TODO: Add support for signed literals, for now everything is the same
+            when ADDIm | SLTIm | SLTIUm | ANDIm | ORIm | XORIm => --TODO: check aligmnment with XALLIGN, 
+                        
+                    
                     code := OPIMM;
-                    funct3 := ADDf3;
+                    case tokens(0)(1 to 6) is
+                        when ADDIm => funct3 := ADDf3;
+                        when SLTIm => funct3 := SLTf3;
+                        when SLTIUm => funct3 := SLTUf3;
+                        when ANDIm => funct3 := ANDf3;
+                        when ORIm => funct3 := ORf3;
+                        when XORIm => funct3 := XORf3;
+                        when others => report "Found illegal mnemonic in OPIMM";
+                    end case;
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     imm110 := hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
                     instr := construct_OPIMM(code,rd,funct3,rs1,imm110);
+                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0); --TODO: poetntialy factor this out
+                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
+                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
+                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
+            when SLLIm | SRLIm | SRAIm =>
+                    code := OPIMM;
+                    case tokens(0)(1 to 6) is
+                        when SLLIm => funct3 := SLLf3;
+                        when SRLIm => funct3 := SRL_Af3; imm(11 downto 5) := '0000000';
+                        when SRAIm => funct3 := SRL_Af3; imm(11 downto 5) := '0100000';
+                        when others => report "Found illegal mnemonic in OPIMM shift"; --this should also never happen
+                    end case;
+                    rd := decode_regm(tokens(1)(1 to tokens_len(1)));
+                    rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
+                    imm110(4 downto 0):= hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
+                    instr := construct_OPIMM(code,rd,funct3,rs1,imm110); -- still no support for signed literals
                     mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
                     mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
                     mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
                     mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
-                    
             when others =>
                     report "Found illegal/comment line line";
         end case;
@@ -221,7 +248,7 @@ package body IO_pack is
     procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; f: inout text) is
         variable l: line := null;
     begin
-        report "OPIMM called";
+        
         
         write(l, opcodem & ' ');
         write(l, decode_reg_addr(rd) & ' ');
