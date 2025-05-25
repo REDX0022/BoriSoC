@@ -208,7 +208,7 @@ package body IO_pack is
                     end case;
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
-                    imm110(4 downto 0):= hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
+                    imm110(4 downto 0):= hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)))(4 downto 0); -- Bound to hexstring_to_bitvec implementation 
                     instr := construct_OPIMM(code,rd,funct3,rs1,imm110); -- still no support for signed literals
                     mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
                     mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);

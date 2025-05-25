@@ -16,6 +16,9 @@ end entity;
 
 architecture TB of testbench is
 
+    constant trace_header: string := "OP   |RD|RS1|IMM |  PC |   x0   |   x1   |   x2   |   x3   |   x4   |   x5   |   x6   |   x7   |   x8   |   x9   | x10   |   x11  |  x12   |   x13   |  x14   |   x15  |   x16  |   x17  |   x18  |   x19  |  x20   |   x21  |   x22  |   x23  |   x24  |   x25  |   x26  |   x27  |   x28  |   x29  |   x30  |   x31  |";
+                               --     ADDI   x1 x0 001 @ 0000 00000000 00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+    
     constant trace_path : string := "../../../../tests/trace.txt";
     constant dump_path : string := "../../../../tests/dump.txt";
     constant textin_path : string := "../../../../tests/textin.txt";
@@ -69,7 +72,8 @@ architecture TB of testbench is
         );
 
         process 
-        variable last_cycle_end : bit := '0';
+        variable l:line;
+        variable last_cycle_end : bit := '0'; --Might be depracated
         
         variable code: opcode_type;
         variable rd: reg_addr_type;
@@ -100,7 +104,9 @@ architecture TB of testbench is
            
 
             -- Start the first instruction
-
+            --Make the trace look nice
+            write(l, trace_header);
+            writeline(trace_f, l);
             test_loop: loop
                 
                 wait on cycle_SoC_end;
@@ -150,7 +156,16 @@ architecture TB of testbench is
                                 instrm := SLLIm;
                                 -- Handle SLLI instructions here
                             when SRL_Af3 =>
-                                instrm := SRLIm; 
+                                if(instr_trace(30) = '1') then
+                                    instrm := SRAIm;
+                                    imm110(10) := '0'; --make the immediate accurate since SRAI is alradin in the mnemonic
+                                    --TODO: Better solution for line above
+                                    -- Handle SRAI instructions here
+                                else
+                                    instrm := SRLIm; 
+                                    -- Handle SRLI instructions here
+                                end if;
+                                
                                 -- Handle SRLI instructions here
                             when others =>
                                 report "Unknown OPIMM instruction fetched: " & bitvec_to_bitstring(instr_trace);

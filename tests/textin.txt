@@ -1,8 +1,43 @@
 @ 0000
-ADDI x1 x0 005   ; x1 = 0 + 5 = 5
-SLTI x0 x1 010   ; x0 = (5 < 16) ? 1 : 0 = 1 (but x0 stays 0)
-SLTI x1 x1 010   ; x1 = (5 < 16) ? 1 : 0 = 1
-SLTIU x1 x1 0FF  ; x1 = (1 < 255 unsigned) ? 1 : 0 = 1
-ANDI x1 x1 001   ; x1 = 1 and 1 = 1
-ORI  x1 x1 002   ; x1 = 1 or 2 = 3
-XORI x1 x1 007   ; x1 = 3 xor 7 = 4
+ADDI  x1 x0 001   ; x1 = 0 + 1 = 1
+ADDI  x2 x1 00A   ; x2 = 1 + 10 = 11
+
+; SLTI: signed compare
+SLTI  x1 x2 00B   ; x1 = (11 < 11) ? 1 : 0 = 0
+SLTI  x1 x2 00C   ; x1 = (11 < 12) ? 1 : 0 = 1
+
+; SLTIU: unsigned compare
+ADDI  x2 x0 0FF   ; x2 = 255
+SLTIU x1 x2 100   ; x1 = (255 < 256) ? 1 : 0 = 1
+SLTIU x1 x2 0FE   ; x1 = (255 < 254) ? 1 : 0 = 0
+
+; ANDI
+ADDI  x2 x0 00F   ; x2 = 15
+ANDI  x1 x2 00A   ; x1 = 15 and 10 = 10
+
+; ORI
+ORI   x1 x2 002   ; x1 = 15 or 2 = 15
+
+; XORI
+XORI  x1 x2 00A   ; x1 = 15 xor 10 = 5
+
+; SLLI: shift left logical
+ADDI  x2 x0 001   ; x2 = 1
+SLLI  x1 x2 003   ; x1 = 1 << 3 = 8
+
+; SRLI: shift right logical
+ADDI  x2 x0 0F0   ; x2 = 240
+SRLI  x1 x2 002   ; x1 = 240 >> 2 = 60
+
+; SRAI: shift right arithmetic
+ADDI  x2 x0 0F0   ; x2 = 240 (0b11110000)
+SRAI  x1 x2 002   ; x1 = 240 >>> 2 = 0b11111100 = 252 (if 8-bit, sign-extended)
+
+; Negative value for SRAI, not actually useful
+ADDI  x2 x0 0F8   ; x2 = 248 (0b11111000, -8 if interpreted as signed 8-bit)
+SRAI  x1 x2 003   ; x1 = 248 >>> 3 = 0b11111111 = 255 (if 8-bit, sign-extended)
+
+; Actually negative values for SRAI
+XORI  x2 x0 FFF    ; x2 = 0xFFFFFFFF
+ADDI  x2 x2 FF8    ; x2 = 0xFFFFFFFF + 0xFF8 = 0xFFFFFFF8
+SRAI  x1 x2 003    ; x1 = 0xFFFFFFF8 >>> 3 = 0xFFFFFFFF

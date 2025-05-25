@@ -191,14 +191,14 @@ architecture functional of SoC is
                             regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) xor signext_bv2dw(imm110);
                         when SLLf3 => --TODO: check the imm
                             --report "GOT INTO SLLI";       
-                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_integer(imm40_I);
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_signed_integer(imm40_I);
                         when SRL_Af3 =>
                             if(instr(30) = '1') then --too nieche to make a separeate variable
                                 --report "GOT INTO SRAI";       
-                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(imm40_I);
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_signed_integer(imm40_I);
                             else
                                 --report "GOT INTO SRLI";       
-                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_integer(imm40_I);
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_signed_integer(imm40_I);
                             end if;
                             
                         
