@@ -53,13 +53,13 @@ end SoC;
 
 architecture functional of SoC is
     
-    signal cycle_end_helper: bit := '0';
     
-   
-begin
-
-
+    
+    begin
+        
+        
     process
+    variable cycle_end_helper: bit := '0'; -- TODO: move this
     variable mem: mem_type;
     variable regs: regs_type := (others => X"00000000"); --TODO: Might want to have a proc
     variable PC: pc_type := X"0000"; --might want to change program start
@@ -106,7 +106,7 @@ begin
          
             
             --FETCH instrction
-            report "SoC waiting for cycle begin signal";
+            cycle_end <= '0'; --reset the cycle end signal
             instr := get_dword(PC,mem);
         
             
@@ -226,12 +226,14 @@ begin
             end case;
             
             regs_out <= regs; --by this time all relevant data has been updated
+            cycle_end_helper := not cycle_end_helper; --helper signal to detect cycle end
+            cycle_end <= cycle_end_helper; --output the cycle end signal
                     PC:= slice_msb(PC+X"0004");-- dont ask why it is 15 downto 1
                     report "Value of x0 and x1";
                     report bitvec_to_bitstring(regs(0));
                     report bitvec_to_bitstring(regs(1));
                     --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
-
+            wait for 20 ns;
         end loop;
         mem_out <= mem; --output the memory state   
         wait;

@@ -103,7 +103,7 @@ architecture TB of testbench is
 
             test_loop: loop
                 
-
+                wait on cycle_SoC_end;
                 -- Now do your trace/logging
                 code    := instr_trace(6 downto 0);
                 rd      := instr_trace(11 downto 7);

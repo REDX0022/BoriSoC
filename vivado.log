@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sun May 25 17:31:56 2025
-# Process ID         : 28460
+# Start of session at: Sun May 25 17:42:51 2025
+# Process ID         : 10872
 # Current directory  : C:/Users/ceran/Documents/BoriSoC/BoriSoC
 # Command line       : vivado.exe -mode batch -source sim.tcl
 # Log file           : C:/Users/ceran/Documents/BoriSoC/BoriSoC/vivado.log
@@ -19,7 +19,7 @@
 # Host memory        : 17086 MB
 # Swap memory        : 1178 MB
 # Total Virtual      : 18264 MB
-# Available Virtual  : 4292 MB
+# Available Virtual  : 4315 MB
 #-----------------------------------------------------------
 source sim.tcl
 # puts "Cleaning Vivado backup and simulation files..."
@@ -36,13 +36,13 @@ Cleaning Vivado backup and simulation files...
 #     puts "Deleting $f"
 #     file delete -force $f
 # }
-Deleting vivado_4800.backup.jou
-Deleting vivado_4800.backup.log
+Deleting vivado_15696.backup.jou
+Deleting vivado_15696.backup.log
 # open_project BoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 621.461 ; gain = 191.566
+open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 621.926 ; gain = 193.133
 # add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
@@ -63,6 +63,8 @@ INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xvhdl --incr --relax -prj testbench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SoC'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testbench'
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
@@ -196,107 +198,105 @@ Note: x1S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: 007S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
-Time: 10 ns  Iteration: 0  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Testbench completed.
-Time: 10 ns  Iteration: 0  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: instruction fetched @ 0000000000000000 or in intger form 0
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000010100000000000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000101
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 20 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000000100 or in intger form 4
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000001000000001010000000010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000101
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 40 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000001000 or in intger form 8
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000001000000001010000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Integers to be compeered are SLTI 5 and 16
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000001
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 60 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000001100 or in intger form 12
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00001111111100001011000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Integers to be compeered are SLTIU 1 and 255
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000001
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 80 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000010000 or in intger form 16
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000100001111000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000001
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 100 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000010100 or in intger form 20
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000001000001110000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 120 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000011000 or in intger form 24
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000011100001100000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000100
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SoC waiting for cycle begin signal
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 140 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000000000011100 or in intger form 28
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Error: illegal insruction
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
+Time: 160 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Testbench completed.
+Time: 160 ns  Iteration: 1  Process: /testbench/line__71  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 640.555 ; gain = 19.094
-INFO: [Common 17-206] Exiting Vivado at Sun May 25 17:32:20 2025...
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 641.227 ; gain = 19.301
+INFO: [Common 17-206] Exiting Vivado at Sun May 25 17:43:15 2025...
