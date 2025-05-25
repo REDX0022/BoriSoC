@@ -89,7 +89,7 @@ architecture TB of testbench is
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
         variable imm11B: bit;
-        variable imm3111: bit_vector(19 downto 0);
+        variable imm3112: bit_vector(19 downto 0);
         variable imm20: bit;
         variable imm101: bit_vector(9 downto 0);
         variable imm11J: bit;
@@ -125,12 +125,15 @@ architecture TB of testbench is
                 imm105  := instr_trace(30 downto 25);
                 imm41   := instr_trace(11 downto 8);
                 imm11B  := instr_trace(7);  -- exception naming
-                imm3111 := instr_trace(31 downto 12);
+                imm3112 := instr_trace(31 downto 12);
                 imm20   := instr_trace(31);
                 imm101  := instr_trace(30 downto 21);
                 imm11J  := instr_trace(20); -- exception naming
                 imm1912 := instr_trace(19 downto 12);
                 case code is
+                    when OP =>
+                        report "OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        -- Handle OP instructions here
                     when OPIMM =>
                     case funct3 is
                         when ADDf3 =>
@@ -173,9 +176,6 @@ architecture TB of testbench is
                         -- Handle OPIMM instructions here
                         end case;
                         trace_OPIMM(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
-                    when OP =>
-                        report "OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle OP instructions here
                     when LOAD =>
                         report "LOAD instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle LOAD instructions here
@@ -185,9 +185,15 @@ architecture TB of testbench is
                     when BRANCH =>
                         report "BRANCH instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle BRANCH instructions here
-                    when JARL =>
-                        report "JALR instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle JALR instructions here
+                    when LUI =>
+                        --report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        instrm := LUIm;
+                        trace_LUI(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
+                        -- Handle LUI instructions here
+                    when AUIPC =>
+                        report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        -- Handle AUIPC instructions here
+                    
                     when JAL =>
                         report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here

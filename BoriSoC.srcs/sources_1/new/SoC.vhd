@@ -78,7 +78,7 @@ architecture functional of SoC is
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
         variable imm11B: bit;
-        variable imm3111: bit_vector(19 downto 0);
+        variable imm3112: bit_vector(19 downto 0);
         variable imm20: bit;
         variable imm101: bit_vector(9 downto 0);
         variable imm11J: bit;
@@ -134,7 +134,7 @@ architecture functional of SoC is
             imm105 := instr(30 downto 25);
             imm41 := instr(11 downto 8);
             imm11B := instr(7);  -- exception naming
-            imm3111 := instr(31 downto 12);
+            imm3112 := instr(31 downto 12);
             imm20 := instr(31);
             imm101 := instr(30 downto 21);
             imm11J := instr(20); --exceptino naming
@@ -148,7 +148,7 @@ architecture functional of SoC is
             --EXECUTE instruction
             case code is
                 when OP => 
-                    
+
                 when OPIMM =>
                     if(rd /= "00000") then
                         --report "GOT INTO OPIMM";
@@ -165,7 +165,7 @@ architecture functional of SoC is
                         
                         when SLTf3 =>
                             --report "GOT INTO SLTI";
-                            report "Integers to be compeered are SLTI " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            --report "Integers to be compeered are SLTI " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
                             if (bv_to_signed_integer(regs(bv_to_integer(rs1))) < bv_to_signed_integer(signext_bv2dw(imm110))) then -- ERROR HERE
                                 regs(bv_to_integer(rd)) := X"00000001";
                             else
@@ -174,7 +174,7 @@ architecture functional of SoC is
                         when SLTUf3 => -- the imm is first SIGN extended and the treated as unsigned
                             --report "GOT INTO SLTUI";
 
-                            report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            --report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
                             if (bv_to_integer(regs(bv_to_integer(rs1))) < bv_to_integer(signext_bv2dw(imm110))) then
                                 regs(bv_to_integer(rd)) := X"00000001";
                             else
@@ -191,14 +191,15 @@ architecture functional of SoC is
                             regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) xor signext_bv2dw(imm110);
                         when SLLf3 => --TODO: check the imm
                             --report "GOT INTO SLLI";       
-                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_signed_integer(imm40_I);
+                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_integer(imm40_I);
                         when SRL_Af3 =>
                             if(instr(30) = '1') then --too nieche to make a separeate variable
-                                --report "GOT INTO SRAI";       
-                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_signed_integer(imm40_I);
+                                report "GOT INTO SRAI";       
+                                report "SHIFTING BY " & integer'image(bv_to_integer(imm40_I));
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(imm40_I);
                             else
                                 --report "GOT INTO SRLI";       
-                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_signed_integer(imm40_I);
+                                regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_integer(imm40_I);
                             end if;
                             
                         
@@ -213,8 +214,13 @@ architecture functional of SoC is
                 when BRANCH =>
                 when AUIPC =>
                 when LUI =>
-                when JAL =>
+                    if(rd /= "00000") then
+                        --report "GOT INTO LUI";
+                        regs(bv_to_integer(rd)) := imm3112 & X"000"; --TODO: check the imm
+                    end if;
                 when FENCE => --dont need to support
+                when JAL =>
+                
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here

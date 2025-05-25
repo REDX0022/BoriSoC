@@ -32,6 +32,14 @@ package IO_pack is
         regs    : regs_type;
         f       : inout text
     );
+    procedure trace_LUI(
+        opcodem : mnemonic_type;
+        rd      : reg_addr_type;
+        imm3112 : bit_vector(19 downto 0);
+        PC      : addr_type;
+        regs    : regs_type;
+        f       : inout text
+    );
     
 end package;
 
@@ -150,7 +158,7 @@ package body IO_pack is
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
         variable imm11B: bit;
-        variable imm3111: bit_vector(19 downto 0);
+        variable imm3112: bit_vector(19 downto 0);
         variable imm20: bit;
         variable imm101: bit_vector(9 downto 0);
         variable imm11J: bit;
@@ -215,6 +223,17 @@ package body IO_pack is
                     mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
                     mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
+            when LUIm =>
+                    code := LUI;
+                    rd := decode_regm(tokens(1)(1 to tokens_len(1)));
+                    imm3112 := hexstring_to_bitvec(tokens(2)(1 to tokens_len(2)));
+                    instr := construct_LUI(code, rd, imm3112);
+                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
+                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
+                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
+                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
+            
             when others =>
                     report "Found illegal/comment line line";
         end case;
@@ -267,6 +286,20 @@ package body IO_pack is
            
         end loop;
         
+        writeline(f, l);
+    end procedure;
+
+    procedure trace_LUI(opcodem: mnemonic_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
+        variable l: line := null;
+        begin
+        write(l, opcodem & ' ');
+        write(l, decode_reg_addr(rd) & ' ');
+        write(l, bitvec_to_hex_string(imm3112) & " @ ");
+        write(l, bitvec_to_hex_string(PC) & ' ');
+        for i in regs'range loop
+            --write(l, "x" & integer'image(i) & ": "); this will be in the header
+            write(l, bitvec_to_hex_string(regs(i)) & ' ');
+        end loop;
         writeline(f, l);
     end procedure;
 
