@@ -213,11 +213,17 @@ architecture functional of SoC is
                 when STORE =>
                 when BRANCH =>
                 when AUIPC =>
+                    if(rd /= "00000") then
+                        --report "GOT INTO AUIPC";
+                        --Addional slicined needed because of the 16 bit address space
+                        regs(bv_to_integer(rd)) := X"0000" & (slice_msb((X"0000" & PC) + (imm3112 & X"000"))(15 downto 0)); --TODO: make extenstions functions, this is specific to our 16 bit address space
+                    end if;
                 when LUI =>
                     if(rd /= "00000") then
                         --report "GOT INTO LUI";
                         regs(bv_to_integer(rd)) := imm3112 & X"000"; --TODO: check the imm
                     end if;
+
                 when FENCE => --dont need to support
                 when JAL =>
                 

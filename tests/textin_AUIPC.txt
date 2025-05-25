@@ -1,0 +1,43 @@
+; AUIPC tests for 16-bit address space (results wrap at 0x10000)
+
+; Basic values
+@ 0000
+AUIPC x1 00000      ; x1 = (PC + 0x0000) & 0xFFFF
+AUIPC x2 00001      ; x2 = (PC + 0x1000) & 0xFFFF
+AUIPC x3 0000F      ; x3 = (PC + 0xF000) & 0xFFFF
+AUIPC x4 00010      ; x4 = (PC + 0x10000) & 0xFFFF = PC (wraps)
+AUIPC x5 00020      ; x5 = (PC + 0x20000) & 0xFFFF = PC (wraps)
+
+; Edge cases
+AUIPC x6 FFFFF      ; x6 = (PC + 0xFFFFF000) & 0xFFFF
+AUIPC x7 7FFFF      ; x7 = (PC + 0x7FFFF000) & 0xFFFF
+AUIPC x8 80000      ; x8 = (PC + 0x80000000) & 0xFFFF
+
+; Overwrite test
+AUIPC x9 0AAAA      ; x9 = (PC + 0xAAAA000) & 0xFFFF
+AUIPC x9 05555      ; x9 = (PC + 0x5555000) & 0xFFFF
+
+; AUIPC with zero register (should have no effect)
+AUIPC x0 12345      ; x0 should remain 0
+
+; Alternating patterns
+AUIPC x10 55555     ; x10 = (PC + 0x55555000) & 0xFFFF
+AUIPC x11 AAAAA     ; x11 = (PC + 0xAAAAA000) & 0xFFFF
+
+; Minimum and maximum
+AUIPC x12 00000     ; x12 = (PC + 0x00000000) & 0xFFFF
+AUIPC x13 FFFFF     ; x13 = (PC + 0xFFFFF000) & 0xFFFF
+
+; Incrementing PC
+AUIPC x14 00001     ; x14 = (PC + 0x1000) & 0xFFFF
+AUIPC x15 00002     ; x15 = (PC + 0x2000) & 0xFFFF
+AUIPC x16 00003     ; x16 = (PC + 0x3000) & 0xFFFF
+
+; Decrementing pattern
+AUIPC x17 FFFFE     ; x17 = (PC + 0xFFFFE000) & 0xFFFF
+AUIPC x18 FFFFD     ; x18 = (PC + 0xFFFFD000) & 0xFFFF
+
+; Mid-range values
+AUIPC x19 40000     ; x19 = (PC + 0x40000000) & 0xFFFF
+AUIPC x20 20000     ; x20 = (PC + 0x20000000) & 0xFFFF
+AUIPC x21 10000     ; x21 = (PC + 0x10000000) & 0xFFFF

@@ -191,9 +191,10 @@ architecture TB of testbench is
                         trace_LUI(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                         -- Handle LUI instructions here
                     when AUIPC =>
-                        report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        --report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle AUIPC instructions here
-                    
+                        instrm := AUIPCm;
+                        trace_AUIPC(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                     when JAL =>
                         report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here
