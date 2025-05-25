@@ -23,6 +23,11 @@ architecture TB of testbench is
     signal mem_tb_out: mem_type;
     signal instr_trace: instr_type;
     signal PC_trace: pc_type;
+    signal regs_trace: regs_type;
+
+    signal cycle_SoC_begin: bit := '0';
+    signal cycle_SoC_end: bit := '0';
+    signal mem_init_SoC_done: bit := '0';
 
     signal mem_temp: mem_type;
 
@@ -40,7 +45,11 @@ architecture TB of testbench is
                 mem_in: in mem_type;
                 mem_out: out mem_type;
                 instr_out: out instr_type;
-                PC_out: out pc_type
+                PC_out: out pc_type;
+                regs_out: out regs_type;
+                cycle_begin: in bit;
+                cycle_end: out bit;
+                mem_init_done: out bit
 
             );
     end component;
@@ -52,13 +61,16 @@ architecture TB of testbench is
             mem_in   => mem_tb_out,
             mem_out => mem_tb_in,
             instr_out => instr_trace,
-            PC_out    => PC_trace
+            PC_out    => PC_trace,
+            regs_out => regs_trace,
+            cycle_begin => cycle_SoC_begin,
+            cycle_end => cycle_SoC_end,
+            mem_init_done => mem_init_SoC_done
         );
 
         process 
+        variable last_cycle_end : bit := '0';
         
-        
-
         variable code: opcode_type;
         variable rd: reg_addr_type;
         variable rs1: reg_addr_type;
@@ -80,15 +92,19 @@ architecture TB of testbench is
         variable imm1912: bit_vector(7 downto 0);
         variable instrm: mnemonic_type;
         begin
-            --Assign the instruction parts for easy use
-            -- Initialize memory with the text file
+            -- Initialize memory and SoC
             mem_temp <= init_mem;
-            wait on mem_temp; -- Allow some time for the memory to initialize
-            wait for 10 ns; -- Wait for the memory to stabilize
+            wait for 10 ns; -- Wait for memory initialization
             mem_tb_out <= mem_temp;
-            test_loop:loop
-                report "Waiting for instruction trace...";
-                wait on instr_trace;
+            
+           
+
+            -- Start the first instruction
+
+            test_loop: loop
+                
+
+                -- Now do your trace/logging
                 code    := instr_trace(6 downto 0);
                 rd      := instr_trace(11 downto 7);
                 rs1     := instr_trace(19 downto 15);
@@ -134,14 +150,14 @@ architecture TB of testbench is
                                 instrm := SLLIm;
                                 -- Handle SLLI instructions here
                             when SRL_Af3 =>
-                                instrm := SRLIm;
+                                instrm := SRLIm; 
                                 -- Handle SRLI instructions here
                             when others =>
                                 report "Unknown OPIMM instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                 exit test_loop; -- Exit the loop on unknown funct3
                         -- Handle OPIMM instructions here
                         end case;
-                        trace_OPIMM(instrm, rd, rs1, imm110, PC_trace,trace_f);
+                        trace_OPIMM(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
                     when OP =>
                         report "OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle OP instructions here
@@ -161,19 +177,21 @@ architecture TB of testbench is
                         report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here
                     when others =>
-                        report "Unknown instruction fetched, exiting: " & bitvec_to_bitstring(instr_trace);
+                        report "Unknown instruction fetched, exiting testbench: " & bitvec_to_bitstring(instr_trace);
                         exit test_loop; -- Exit the loop on unknown instruction
 
                 end case;
-                
+                report "Trace done";
+
+                -- Trigger SoC to execute next instruction
+               
             end loop;
-            wait for 10 ns; -- Allow some time for the last instruction to be processed
-            --wait on mem_tb_out;
+
             dump_memory(dump_path, mem_tb_out);
             file_close(trace_f);
             file_close(dump_f);
             report "Testbench completed.";
-            WAIT;
+            wait;
         end process;
 
 end architecture;

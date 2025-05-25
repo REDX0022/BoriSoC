@@ -42,14 +42,18 @@ entity SoC is
         mem_in: in mem_type; 
         mem_out: out mem_type;
         instr_out: out instr_type;
-        PC_out: out pc_type
-        --Might want to add a register dump output
+        PC_out: out pc_type;
+        regs_out: out regs_type;
+        cycle_begin: in bit;
+        cycle_end: out bit;
+        mem_init_done: out bit
     );
 
 end SoC;
 
 architecture functional of SoC is
-
+    
+    signal cycle_end_helper: bit := '0';
     
    
 begin
@@ -89,16 +93,24 @@ begin
     variable temp4: bit_vector(15 downto 0);
     ---TEMPORARY TRACE FILE: MOVE TO tesetbench
     -- file declaration moved outside process
-    
+    variable last_cycle_begin : bit := '0';
+
     begin
         --initalize everything
         wait on mem_in;
+        wait for 10 ns;
         mem := mem_in; --get the memory from the input signal
         
+
         CPU_loop: loop 
-        --FETCH instrction
+         
+            
+            --FETCH instrction
+            report "SoC waiting for cycle begin signal";
             instr := get_dword(PC,mem);
         
+            
+
             instr_out <= instr; --output the instruction
             PC_out <= PC; --output the program counter
             
@@ -212,15 +224,16 @@ begin
                     --dumpOUT <= mem; --TODO: make this a proc
                     --lets do a reg dump here
             end case;
-                    
+            
+            regs_out <= regs; --by this time all relevant data has been updated
                     PC:= slice_msb(PC+X"0004");-- dont ask why it is 15 downto 1
                     report "Value of x0 and x1";
                     report bitvec_to_bitstring(regs(0));
                     report bitvec_to_bitstring(regs(1));
                     --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
-                    
-            wait for 10 ns; 
+
         end loop;
-        mem_out <= mem; --output the memory state
+        mem_out <= mem; --output the memory state   
+        wait;
     end process;
 end functional;

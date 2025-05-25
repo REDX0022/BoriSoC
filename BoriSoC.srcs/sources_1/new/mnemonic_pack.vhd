@@ -25,12 +25,12 @@ package mnemonic_pack is
     function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
     function decode_regm(name : string) return reg_addr_type;
     function decode_reg_addr(addr : reg_addr_type) return string;
-end package;
-
-
--- naming functinos after opcodes means there will be duplicates, but that is file for now 
+    end package;
+    
+    
+    -- naming functinos after opcodes means there will be duplicates, but that is file for now 
 package body mnemonic_pack is
-    function construct_OPIMM(opcode: opcode_type; rd: regs_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
+    function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
         begin
         return (imm110 & rs1 & funct3 & rd & opcode);
     end function;

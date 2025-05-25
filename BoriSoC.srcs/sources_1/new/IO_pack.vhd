@@ -29,8 +29,10 @@ package IO_pack is
         rs1     : reg_addr_type;
         imm110  : bit_vector(11 downto 0);
         PC      : addr_type;
+        regs    : regs_type;
         f       : inout text
     );
+    
 end package;
 
 
@@ -196,8 +198,12 @@ package body IO_pack is
                     code := OPIMM;
                     case tokens(0)(1 to 6) is
                         when SLLIm => funct3 := SLLf3;
-                        when SRLIm => funct3 := SRL_Af3; imm(11 downto 5) := '0000000';
-                        when SRAIm => funct3 := SRL_Af3; imm(11 downto 5) := '0100000';
+                        when SRLIm => 
+                            funct3 := SRL_Af3; 
+                            imm110(11 downto 5) := "0000000";
+                        when SRAIm => 
+                            funct3 := SRL_Af3; 
+                            imm110(11 downto 5) := "0100000";
                         when others => report "Found illegal mnemonic in OPIMM shift"; --this should also never happen
                     end case;
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
@@ -245,7 +251,7 @@ package body IO_pack is
 
 
     -----------------------------------------------Tracing-----------------------------------
-    procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; f: inout text) is
+    procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
         variable l: line := null;
     begin
         
@@ -254,8 +260,15 @@ package body IO_pack is
         write(l, decode_reg_addr(rd) & ' ');
         write(l, decode_reg_addr(rs1) & ' ');
         write(l, bitvec_to_hex_string(imm110) & " @ ");
-        write(l, bitvec_to_hex_string(PC));
+        write(l, bitvec_to_hex_string(PC) & ' ');
+        for i in regs'range loop
+            --write(l, "x" & integer'image(i) & ": "); this will be in the header
+            write(l, bitvec_to_hex_string(regs(i)) & ' ');
+           
+        end loop;
+        
         writeline(f, l);
     end procedure;
+
     
 end package body;
