@@ -206,6 +206,7 @@ architecture functional of SoC is
                         end case;
                     
                     end if;
+                    PC:= slice_msb(PC+X"0004");
                 when OPIMM =>
                     if(rd /= "00000") then
                         --report "GOT INTO OPIMM";
@@ -264,9 +265,9 @@ architecture functional of SoC is
                                 report "illegal insruction" severity error;
                        end case;
                     end if;
-                            
+                    PC:= slice_msb(PC+X"0004");
                 when LOAD =>
-                when JARL =>
+                
                 when STORE =>
                 when BRANCH =>
                 when AUIPC =>
@@ -275,15 +276,24 @@ architecture functional of SoC is
                         --Addional slicined needed because of the 16 bit address space
                         regs(bv_to_integer(rd)) := X"0000" & (slice_msb((X"0000" & PC) + (imm3112 & X"000"))(15 downto 0)); --TODO: make extenstions functions, this is specific to our 16 bit address space
                     end if;
+                    PC:= slice_msb(PC+X"0004");
                 when LUI =>
                     if(rd /= "00000") then
                         --report "GOT INTO LUI";
-                        regs(bv_to_integer(rd)) := imm3112 & X"000"; --TODO: check the imm
+                        regs(bv_to_integer(rd)) := imm3112 & X"000"; 
                     end if;
-
+                    PC:= slice_msb(PC+X"0004");
                 when FENCE => --dont need to support
                 when JAL =>
-                
+                        PC := slice_msb(PC + (signext_bv2dw(imm20 & imm101 & imm11J & imm1912 & 0))(15 downto 0)); --to match the 16 bit address space 
+                        if(rd /= "00000") then
+                            regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
+                        end if;
+                when JARL =>
+                        PC := slice_lsb(slice_msb(PC + bv_to_word(imm110))) & '0'; --some bit magic
+                        if (rd /= "00000") then
+                            regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
+                        end if;
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here
@@ -297,10 +307,8 @@ architecture functional of SoC is
             regs_out <= regs; --by this time all relevant data has been updated
             cycle_end_helper := not cycle_end_helper; --helper signal to detect cycle end
             cycle_end <= cycle_end_helper; --output the cycle end signal
-                    PC:= slice_msb(PC+X"0004");-- dont ask why it is 15 downto 1
-                    report "Value of x0 and x1";
-                    report bitvec_to_bitstring(regs(0));
-                    report bitvec_to_bitstring(regs(1));
+                    
+                    
                     --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
             wait for 20 ns;
         end loop;
