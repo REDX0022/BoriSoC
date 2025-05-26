@@ -101,8 +101,7 @@ architecture functional of SoC is
         wait for 10 ns;
         mem := mem_in; --get the memory from the input signal
         
-        report "SUB testing";
-        report bitvec_to_hex_string(slice_lsb(X"000007FF" - X"FFFFFF800")) severity note;
+       
         CPU_loop: loop 
          
             
@@ -116,7 +115,7 @@ architecture functional of SoC is
             PC_out <= PC; --output the program counter
             
             
-            report "instruction fetched @ " & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
+            report "instruction fetched @ " & bitvec_to_hex_string(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
             
             report bitvec_to_bitstring(instr);
             
@@ -163,9 +162,47 @@ architecture functional of SoC is
                                         report "illegal insruction in ADD and SUB" severity error; --also print to trace here
                                         exit CPU_loop;
                                 end case;
-                                when others => --THIS WILL NEVER HAPPEN
-                                    report "illegal insruction in OP " severity error; --also print to trace here
-                                    exit CPU_loop;
+                            when SLTf3 => --SLT
+                                
+                                report "GOT INTO SLT";
+                                report "Integers to be compeered are SLT " & bitvec_to_hex_string(regs(bv_to_integer(rs1))) & " and " & bitvec_to_hex_string(regs(bv_to_integer(rs2)));
+                                if (bv_to_signed_integer(regs(bv_to_integer(rs1))) < bv_to_signed_integer(regs(bv_to_integer(rs2)))) then
+                                    regs(bv_to_integer(rd)) := X"00000001";
+                                    else
+                                    regs(bv_to_integer(rd)) := X"00000000";
+                                    end if;
+                            when SLTUf3 => --SLTU
+                                    --report "GOT INTO SLTU";
+                                    if (bv_to_unsigned(regs(bv_to_integer(rs1))) < bv_to_unsigned(regs(bv_to_integer(rs2)))) then
+                                        regs(bv_to_integer(rd)) := X"00000001";
+                                    else
+                                        regs(bv_to_integer(rd)) := X"00000000";
+                                    end if;
+                            when ANDf3 =>
+                                        --report "GOT INTO AND";
+                                        regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) and regs(bv_to_integer(rs2));
+                            when ORf3 =>
+                                    --report "GOT INTO OR";
+                                        regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) or regs(bv_to_integer(rs2));
+                            when XORf3 =>
+                                        --report "GOT INTO XOR";
+                                        regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) xor regs(bv_to_integer(rs2));
+                            when SLLf3 => --TODO: check the imm
+                                        --report "GOT INTO SLL";
+                                        regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sll bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0)); 
+                            when SRL_Af3 =>
+                                        if(instr(30) = '1') then --too nieche to make a separeate variable, this is the same as funct7
+                                            --report "GOT INTO SRA";       
+                                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0));
+                                        else
+                                            --report "GOT INTO SRL";     
+                                            --report "SHIFTING BY " & integer'image(bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0)));   
+                                            regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0));
+                                        end if;
+                                when others=> --THIS WILL NEVER HAPPEN
+                                report "illegal insruction in OP" severity error; --also print to trace here
+                               
+                                exit CPU_loop;
                         end case;
                     
                     end if;
@@ -195,7 +232,7 @@ architecture functional of SoC is
                             --report "GOT INTO SLTUI";
 
                             --report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
-                            if (bv_to_integer(regs(bv_to_integer(rs1))) < bv_to_integer(signext_bv2dw(imm110))) then
+                            if (bv_to_unsigned(regs(bv_to_integer(rs1))) < bv_to_unsigned(signext_bv2dw(imm110))) then
                                 regs(bv_to_integer(rd)) := X"00000001";
                             else
                                 regs(bv_to_integer(rd)) := X"00000000";

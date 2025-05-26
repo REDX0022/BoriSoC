@@ -167,6 +167,12 @@ architecture TB of testbench is
                                 instrm := SLLm;
                                 -- Handle SLL instructions here
                             when SRL_Af3 =>
+                                if(instr_trace(30) = '1') then
+                                    instrm := SRAm;
+                                else 
+                                    instrm := SRLm; 
+                                    -- Handle SRL instructions here
+                                end if;
                             when others =>
                                     report "Unknown funct3 for OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                     exit test_loop; -- Exit the loop on unknown funct3

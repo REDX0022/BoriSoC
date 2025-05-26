@@ -120,6 +120,7 @@ package def_pack is
     function to_integer(addr: addr_type) return integer;
     function bv_to_integer(bv: bit_vector) return integer;
     function bv_to_signed_integer(bv : bit_vector) return integer;
+    function bv_to_unsigned(bv: bit_vector) return unsigned;
 
     function signext_bv2dw(bv: bit_vector) return dword_type;
 
@@ -185,7 +186,7 @@ package body def_pack is
         return res;
     end function;
     --TODO: make a signed version
-    function bv_to_integer(bv : bit_vector) return integer is
+    function bv_to_integer(bv : bit_vector) return integer is 
     variable result : integer := 0;
     variable exp : integer := bv'length-1;
     begin
@@ -199,38 +200,40 @@ package body def_pack is
         return result;
     end function;
     
+    --the point is range always goes to msb first
     function bv_to_signed_integer(bv : bit_vector) return integer is
     variable result : integer := 0;
-    variable exp : integer := 0;
-    variable msb : integer;
+    variable width  : integer := bv'length;
+    variable idx    : integer := 0;
+    variable is_negative : boolean := false;
     begin
-        -- Find the MSB index
-        msb := bv'left;
-
-        -- If MSB is '1', it's negative (two's complement)
-        if bv(msb) = '1' then
-            -- Compute two's complement: invert and add 1
-            for i in bv'range loop
-                if i = msb then
-                    -- skip MSB for magnitude
-                    null;
-                elsif bv(i) = '0' then
-                    result := result + 2**exp;
-                end if;
-                exp := exp + 1;
-            end loop;
-            return -(result + 1);
-        else
-            -- Positive number
-            exp := bv'length - 1;
-            for i in bv'range loop
+        for i in bv'range loop
+            if idx = 0 then
                 if bv(i) = '1' then
-                    result := result + 2**exp;
+                    is_negative := true;
                 end if;
-                exp := exp - 1;
+            elsif ((bv(i) = '1')  and not is_negative) OR ((bv(i) = '0') and is_negative) then
+                result := result + 2**(width-1-idx);
+            end if;
+            idx := idx + 1;
+        end loop;
+    
+        return result;
+    end function;
+    
+    function bv_to_unsigned(bv: bit_vector) return unsigned is
+        variable result: unsigned(bv'length - 1 downto 0);
+        variable idx: integer :=  bv'length - 1; -- Start from the MSB
+        begin
+            for i in bv'range loop
+                if(bv(i) = '1') then --GOD THIS IS UGLY, stupid vivado gives me an error no matter what i do
+                    result(idx) := '1';
+                else
+                    result(idx) := '0';
+                end if;
+                idx := idx - 1; -- Move to the next bit
             end loop;
-            return result;
-        end if;
+        return result;
     end function;
     
 
