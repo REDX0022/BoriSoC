@@ -18,39 +18,10 @@ package IO_pack is
     procedure put_instr(mem: inout mem_type; curr_addr: in addr_type; instr: in instr_type);
     procedure dump_memory(filename: in string; mem: in mem_type);
 
-    procedure get_next_token(
-        l      : inout line;
-        max_len       : in integer;
-        token         : out token_type;
-        token_len     : out integer;
-        end_of_line   : out boolean
-    );
-    procedure trace_R(
-        opcodem : mnemonic_type;
-        rd      : reg_addr_type;
-        rs1     : reg_addr_type;
-        rs2     : reg_addr_type;
-        PC      : addr_type;
-        regs    : regs_type;
-        f       : inout text
-    );
-    procedure trace_I(
-        opcodem : mnemonic_type;
-        rd      : reg_addr_type;
-        rs1     : reg_addr_type;
-        imm110  : bit_vector(11 downto 0);
-        PC      : addr_type;
-        regs    : regs_type;
-        f       : inout text
-    );
-    procedure trace_U(
-        opcodem : mnemonic_type;
-        rd      : reg_addr_type;
-        imm3112 : bit_vector(19 downto 0);
-        PC      : addr_type;
-        regs    : regs_type;
-        f       : inout text
-    );
+    procedure get_next_token(l: inout line; max_len: in integer; token: out token_type; token_len: out integer; end_of_line: out boolean);
+    procedure trace_R(opcodem : mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; rs2: reg_addr_type; PC: addr_type; regs: regs_type; f: inout text);
+    procedure trace_I(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC: addr_type;regs: regs_type; f: inout text);
+    procedure trace_U(opcodem : mnemonic_type; rd: reg_addr_type; imm3112 : bit_vector(19 downto 0); PC: addr_type; regs: regs_type; f: inout text);
     
     
 end package;
