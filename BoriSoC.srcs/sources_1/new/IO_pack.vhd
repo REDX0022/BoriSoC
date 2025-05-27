@@ -15,7 +15,9 @@ package IO_pack is
 
     impure function tokenize(filepath: string; mem: mem_type) return mem_type;
     procedure parse_line(tokens: tokens_type; tokens_len: tokens_len_type; token_count : integer; mem: inout mem_type; curr_addr: inout addr_type);
+    procedure put_instr(mem: inout mem_type; curr_addr: in addr_type; instr: in instr_type);
     procedure dump_memory(filename: in string; mem: in mem_type);
+
     procedure get_next_token(
         l      : inout line;
         max_len       : in integer;
@@ -214,10 +216,7 @@ package body IO_pack is
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     imm110 := hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
                     instr := construct_OPIMM(code,rd,funct3,rs1,imm110);
-                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0); --TODO: poetntialy factor this out
-                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
-                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
-                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when SLLIm | SRLIm | SRAIm =>
                     code := OPIMM;
@@ -235,10 +234,7 @@ package body IO_pack is
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     imm110(4 downto 0):= hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)))(4 downto 0); -- Bound to hexstring_to_bitvec implementation 
                     instr := construct_OPIMM(code,rd,funct3,rs1,imm110); -- still no support for signed literals
-                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
-                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
-                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
-                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when LUIm | AUIPCm =>
                     -- LUI and AUIPC are similar, so we can handle them together
@@ -252,10 +248,7 @@ package body IO_pack is
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     imm3112 := hexstring_to_bitvec(tokens(2)(1 to tokens_len(2)));
                     instr := construct_LUI(code, rd, imm3112);
-                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
-                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
-                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
-                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when ADDm | SUBm | SLTm | SLTUm | ANDm | ORm | XORm | SLLm | SRLm | SRAm=>
                     code := OP;
@@ -276,10 +269,7 @@ package body IO_pack is
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     rs2 := decode_regm(tokens(3)(1 to tokens_len(3)));
                     instr := construct_OP(code, rd, funct3, rs1, rs2, funct7);
-                    mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
-                    mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
-                    mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
-                    mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+                    put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when SLLm | SRLm | SRAm =>
                         
@@ -290,6 +280,15 @@ package body IO_pack is
 
                 
         end procedure;
+
+    procedure put_instr(mem: inout mem_type; curr_addr: in addr_type; instr: in instr_type) is
+        begin
+            mem(bv_to_integer(curr_addr)) := instr(7 downto 0);
+            mem(bv_to_integer(curr_addr)+1) := instr(15 downto 8);
+            mem(bv_to_integer(curr_addr)+2) := instr(23 downto 16);
+            mem(bv_to_integer(curr_addr)+3) := instr(31 downto 24);
+            
+    end procedure;
         
     procedure dump_memory(filename: in string; mem: in mem_type) is
         file outfile : text;

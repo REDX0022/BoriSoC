@@ -284,16 +284,16 @@ architecture functional of SoC is
                     end if;
                     PC:= slice_msb(PC+X"0004");
                 when FENCE => --dont need to support
-                when JAL =>
-                        PC := slice_msb(PC + (signext_bv2dw(imm20 & imm101 & imm11J & imm1912 & 0))(15 downto 0)); --to match the 16 bit address space 
-                        if(rd /= "00000") then
-                            regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
-                        end if;
-                when JARL =>
-                        PC := slice_lsb(slice_msb(PC + bv_to_word(imm110))) & '0'; --some bit magic
-                        if (rd /= "00000") then
-                            regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
-                        end if;
+                -- when JAL =>
+                --         PC := slice_msb(PC + (signext_bv2dw(imm20 & imm101 & imm11J & imm1912 & 0))(15 downto 0)); --to match the 16 bit address space 
+                --         if(rd /= "00000") then
+                --             regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
+                --         end if;
+                -- when JARL =>
+                --         PC := slice_lsb(slice_msb(PC + bv_to_word(imm110))) & '0'; --some bit magic
+                --         if (rd /= "00000") then
+                --             regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
+                --         end if;
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here

@@ -1,0 +1,72 @@
+; --- Register setup ---
+@ 0000
+ADDI x1 x0 001      ; x1 = 1
+ADDI x2 x0 002      ; x2 = 2
+ADDI x3 x0 FFF      ; x3 = -1 (0xFFFFFFFF)
+ADDI x4 x0 800      ; x4 = -2048 (0xFFFFF800)
+ADDI x5 x0 7FF      ; x5 = 2047
+ADDI x6 x0 00F      ; x6 = 15
+ADDI x7 x0 0F0      ; x7 = 240
+ADDI x8 x0 100      ; x8 = 256
+
+; --- ADD ---
+ADD  x9  x1 x2      ; x9  = 1 + 2 = 3
+ADD  x10 x5 x4      ; x10 = 2047 + (-2048) = -1 (0xFFFFFFFF)
+ADD  x11 x3 x3      ; x11 = -1 + -1 = -2 (0xFFFFFFFE)
+
+; --- SUB ---
+SUB  x12 x2 x1      ; x12 = 2 - 1 = 1
+SUB  x13 x1 x2      ; x13 = 1 - 2 = -1 (0xFFFFFFFF)
+SUB  x14 x3 x5      ; x14 = -1 - 2047 = -2048 (0xFFFFF800)
+
+; --- SLT (signed) ---
+SLT  x15 x1 x2      ; x15 = (1 < 2) ? 1 : 0 = 1
+SLT  x16 x2 x1      ; x16 = (2 < 1) ? 1 : 0 = 0
+SLT  x17 x4 x5      ; x17 = (-2048 < 2047) ? 1 : 0 = 1
+SLT  x18 x5 x4      ; x18 = (2047 < -2048) ? 1 : 0 = 0
+SLT  x19 x3 x0      ; x19 = (-1 < 0) ? 1 : 0 = 1
+
+; --- SLTU (unsigned) ---
+SLTU x20 x1 x2      ; x20 = (1 < 2) ? 1 : 0 = 1
+SLTU x21 x2 x1      ; x21 = (2 < 1) ? 1 : 0 = 0
+SLTU x22 x3 x0      ; x22 = (0xFFFFFFFF < 0) ? 0 : 0 = 0
+SLTU x23 x0 x3      ; x23 = (0 < 0xFFFFFFFF) ? 1 : 0 = 1
+
+; --- AND ---
+AND  x24 x6 x7      ; x24 = 15 & 240 = 0
+AND  x25 x3 x5      ; x25 = 0xFFFFFFFF & 2047 = 2047
+
+; --- OR ---
+OR   x26 x6 x7      ; x26 = 15 | 240 = 255
+OR   x27 x3 x0      ; x27 = 0xFFFFFFFF | 0 = 0xFFFFFFFF
+
+; --- XOR ---
+XOR  x28 x6 x7      ; x28 = 15 ^ 240 = 255
+XOR  x29 x3 x5      ; x29 = 0xFFFFFFFF ^ 2047 = 0xFFFFF800
+
+; --- SLL (shift left logical) ---
+SLL  x30 x6 x1      ; x30 = 15 << 1 = 30
+SLL  x31 x7 x2      ; x31 = 240 << 2 = 960
+
+; --- SRL (shift right logical) ---
+SRL  x10 x7 x1      ; x10 = 240 >> 1 = 120
+SRL  x11 x8 x2      ; x11 = 256 >> 2 = 64
+SRL  x12 x3 x5      ; x12 = 0xFFFFFFFF >> 2047 = 0xFFFFFFFF >> 7 = 0x01FFFFFF (since only lower 5 bits used)
+
+; --- SRA (shift right arithmetic) ---
+SRA  x13 x4 x1      ; x13 = -2048 >> 1 = 0xFFFFFC00
+SRA  x14 x3 x2      ; x14 = -1 >> 2 = 0xFFFFFFFF
+SRA  x15 x5 x1      ; x15 = 2047 >> 1 = 1023
+
+; --- More edge cases ---
+SLL  x16 x3 x1      ; x16 = 0xFFFFFFFF << 1 = 0xFFFFFFFE
+SRL  x17 x3 x1      ; x17 = 0xFFFFFFFF >> 1 = 0x7FFFFFFF
+SRA  x18 x3 x1      ; x18 = 0xFFFFFFFF >> 1 = 0xFFFFFFFF
+
+; --- Zero and self ---
+AND  x19 x0 x0      ; x19 = 0 & 0 = 0
+OR   x20 x0 x0      ; x20 = 0 | 0 = 0
+XOR  x21 x0 x0      ; x21 = 0 ^ 0 = 0
+SLL  x22 x0 x1      ; x22 = 0 << 1 = 0
+SRL  x23 x0 x1      ; x23 = 0 >> 1 = 0
+SRA  x24 x0 x1      ; x24 = 0 >> 1 = 0

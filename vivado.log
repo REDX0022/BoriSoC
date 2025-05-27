@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon May 26 23:25:58 2025
-# Process ID         : 33916
+# Start of session at: Tue May 27 17:16:40 2025
+# Process ID         : 5276
 # Current directory  : C:/Users/ceran/Documents/BoriSoC/BoriSoC
 # Command line       : vivado.exe -mode batch -source sim.tcl
 # Log file           : C:/Users/ceran/Documents/BoriSoC/BoriSoC/vivado.log
@@ -19,7 +19,7 @@
 # Host memory        : 17086 MB
 # Swap memory        : 1178 MB
 # Total Virtual      : 18264 MB
-# Available Virtual  : 4012 MB
+# Available Virtual  : 3959 MB
 #-----------------------------------------------------------
 source sim.tcl
 # puts "Cleaning Vivado backup and simulation files..."
@@ -36,13 +36,13 @@ Cleaning Vivado backup and simulation files...
 #     puts "Deleting $f"
 #     file delete -force $f
 # }
-Deleting vivado_25064.backup.jou
-Deleting vivado_25064.backup.log
+Deleting vivado_33448.backup.jou
+Deleting vivado_33448.backup.log
 # open_project BoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.758 ; gain = 191.965
+open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 621.160 ; gain = 193.703
 # add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
@@ -67,7 +67,7 @@ INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSo
 INFO: [VRFC 10-3107] analyzing entity 'SoC'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testbench'
-INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log"
@@ -93,7 +93,7 @@ Compiling package xil_defaultlib.init_pack
 Compiling architecture functional of entity xil_defaultlib.SoC [soc_default]
 Compiling architecture tb of entity xil_defaultlib.testbench
 Built simulation snapshot testbench_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -988,12 +988,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 20 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0004 or in intger form 4
@@ -1003,12 +997,6 @@ Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cera
 Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 40 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1020,12 +1008,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 60 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 000C or in intger form 12
@@ -1035,12 +1017,6 @@ Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cera
 Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 80 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1052,12 +1028,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 100 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0014 or in intger form 20
@@ -1067,12 +1037,6 @@ Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 120 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1084,12 +1048,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 140 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 001C or in intger form 28
@@ -1099,12 +1057,6 @@ Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 160 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1116,12 +1068,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 180 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0024 or in intger form 36
@@ -1131,12 +1077,6 @@ Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 200 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1148,12 +1088,6 @@ Note: Performing addition on bit_vectors of lengths 32 and 32
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 220 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 002C or in intger form 44
@@ -1161,12 +1095,6 @@ Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 01000000000100010000011000110011
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 240 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1176,12 +1104,6 @@ Note: 01000000001000001000011010110011
 Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 260 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0034 or in intger form 52
@@ -1189,12 +1111,6 @@ Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 01000000010100011000011100110011
 Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 280 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1208,12 +1124,6 @@ Note: Integers to be compeered are SLT 00000001 and 00000002
 Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 300 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 003C or in intger form 60
@@ -1225,12 +1135,6 @@ Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: Integers to be compeered are SLT 00000002 and 00000001
 Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 320 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1244,12 +1148,6 @@ Note: Integers to be compeered are SLT FFFFF800 and 000007FF
 Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 340 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0044 or in intger form 68
@@ -1261,12 +1159,6 @@ Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: Integers to be compeered are SLT 000007FF and FFFFF800
 Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 360 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1280,12 +1172,6 @@ Note: Integers to be compeered are SLT FFFFFFFF and 00000000
 Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 380 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 004C or in intger form 76
@@ -1293,12 +1179,6 @@ Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000001000001011101000110011
 Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 400 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1308,12 +1188,6 @@ Note: 00000000000100010011101010110011
 Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 420 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0054 or in intger form 84
@@ -1321,12 +1195,6 @@ Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000000000011011101100110011
 Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 440 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1336,12 +1204,6 @@ Note: 00000000001100000011101110110011
 Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 460 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 005C or in intger form 92
@@ -1349,12 +1211,6 @@ Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000011100110111110000110011
 Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 480 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1364,12 +1220,6 @@ Note: 00000000010100011111110010110011
 Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 500 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0064 or in intger form 100
@@ -1377,12 +1227,6 @@ Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000011100110110110100110011
 Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 520 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1392,12 +1236,6 @@ Note: 00000000000000011110110110110011
 Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 540 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 006C or in intger form 108
@@ -1405,12 +1243,6 @@ Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000011100110100111000110011
 Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 560 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1420,12 +1252,6 @@ Note: 00000000010100011100111010110011
 Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 580 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0074 or in intger form 116
@@ -1433,12 +1259,6 @@ Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000000100110001111100110011
 Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 600 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1448,29 +1268,13 @@ Note: 00000000001000111001111110110011
 Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 620 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 007C or in intger form 124
 Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000100111101010100110011
 Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: GOT INTO SRL
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SHIFTING BY 1
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 640 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1478,17 +1282,7 @@ Note: instruction fetched @ 0080 or in intger form 128
 Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000001001000101010110110011
 Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: GOT INTO SRL
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SHIFTING BY 2
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 660 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1496,17 +1290,7 @@ Note: instruction fetched @ 0084 or in intger form 132
 Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000010100011101011000110011
 Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: GOT INTO SRL
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SHIFTING BY 31
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 680 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1516,12 +1300,6 @@ Note: 01000000000100100101011010110011
 Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 700 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 008C or in intger form 140
@@ -1529,12 +1307,6 @@ Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 01000000001000011101011100110011
 Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 720 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1544,12 +1316,6 @@ Note: 01000000000100101101011110110011
 Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 740 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0094 or in intger form 148
@@ -1558,29 +1324,13 @@ Note: 00000000000100011001100000110011
 Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 760 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0098 or in intger form 152
 Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000100011101100010110011
 Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: GOT INTO SRL
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SHIFTING BY 1
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 780 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1590,12 +1340,6 @@ Note: 01000000000100011101100100110011
 Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 800 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 00A0 or in intger form 160
@@ -1603,12 +1347,6 @@ Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000000000000111100110110011
 Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 820 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1618,12 +1356,6 @@ Note: 00000000000000000110101000110011
 Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 840 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 00A8 or in intger form 168
@@ -1631,12 +1363,6 @@ Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 00000000000000000100101010110011
 Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 860 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1646,29 +1372,13 @@ Note: 00000000000100000001101100110011
 Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
-Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 880 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 00B0 or in intger form 176
 Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000100000101101110110011
 Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: GOT INTO SRL
-Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: SHIFTING BY 1
-Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 900 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1677,12 +1387,6 @@ Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/cer
 Note: 01000000000100000101110000110011
 Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Value of x0 and x1
-Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
-Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000001
 Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Trace done
 Time: 920 ns  Iteration: 1  Process: /testbench/line__74  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -1694,5 +1398,5 @@ Error: illegal insruction
 Time: 940 ns  Iteration: 0  Process: /testbench/UUT/line__61  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 639.773 ; gain = 19.016
-INFO: [Common 17-206] Exiting Vivado at Mon May 26 23:26:23 2025...
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 641.496 ; gain = 20.336
+INFO: [Common 17-206] Exiting Vivado at Tue May 27 17:17:05 2025...
