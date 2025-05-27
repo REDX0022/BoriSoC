@@ -25,7 +25,7 @@ package IO_pack is
         token_len     : out integer;
         end_of_line   : out boolean
     );
-    procedure trace_OP(
+    procedure trace_R(
         opcodem : mnemonic_type;
         rd      : reg_addr_type;
         rs1     : reg_addr_type;
@@ -34,7 +34,7 @@ package IO_pack is
         regs    : regs_type;
         f       : inout text
     );
-    procedure trace_OPIMM(
+    procedure trace_I(
         opcodem : mnemonic_type;
         rd      : reg_addr_type;
         rs1     : reg_addr_type;
@@ -43,7 +43,7 @@ package IO_pack is
         regs    : regs_type;
         f       : inout text
     );
-    procedure trace_LUI(
+    procedure trace_U(
         opcodem : mnemonic_type;
         rd      : reg_addr_type;
         imm3112 : bit_vector(19 downto 0);
@@ -51,14 +51,7 @@ package IO_pack is
         regs    : regs_type;
         f       : inout text
     );
-    procedure trace_AUIPC(
-        opcodem : mnemonic_type;
-        rd      : reg_addr_type;
-        imm3112 : bit_vector(19 downto 0);
-        PC      : addr_type;
-        regs    : regs_type;
-        f       : inout text
-    );
+    
     
 end package;
 
@@ -215,7 +208,7 @@ package body IO_pack is
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     imm110 := hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
-                    instr := construct_OPIMM(code,rd,funct3,rs1,imm110);
+                    instr := construct_I(code,rd,funct3,rs1,imm110);
                     put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when SLLIm | SRLIm | SRAIm =>
@@ -233,7 +226,7 @@ package body IO_pack is
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     imm110(4 downto 0):= hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)))(4 downto 0); -- Bound to hexstring_to_bitvec implementation 
-                    instr := construct_OPIMM(code,rd,funct3,rs1,imm110); -- still no support for signed literals
+                    instr := construct_I(code,rd,funct3,rs1,imm110); -- still no support for signed literals
                     put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when LUIm | AUIPCm =>
@@ -247,7 +240,7 @@ package body IO_pack is
                     end case;
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     imm3112 := hexstring_to_bitvec(tokens(2)(1 to tokens_len(2)));
-                    instr := construct_LUI(code, rd, imm3112);
+                    instr := construct_U(code, rd, imm3112);
                     put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when ADDm | SUBm | SLTm | SLTUm | ANDm | ORm | XORm | SLLm | SRLm | SRAm=>
@@ -268,7 +261,7 @@ package body IO_pack is
                     rd := decode_regm(tokens(1)(1 to tokens_len(1)));
                     rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
                     rs2 := decode_regm(tokens(3)(1 to tokens_len(3)));
-                    instr := construct_OP(code, rd, funct3, rs1, rs2, funct7);
+                    instr := construct_R(code, rd, funct3, rs1, rs2, funct7);
                     put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
             when SLLm | SRLm | SRAm =>
@@ -319,7 +312,7 @@ package body IO_pack is
 
     -----------------------------------------------Tracing-----------------------------------
 
-    procedure trace_OP(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; rs2: reg_addr_type; PC: addr_type; regs: regs_type; f: inout text) is
+    procedure trace_R(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; rs2: reg_addr_type; PC: addr_type; regs: regs_type; f: inout text) is
         variable l: line := null;
         begin
             write(l, opcodem & ' ');
@@ -334,7 +327,7 @@ package body IO_pack is
             writeline(f, l);
     end procedure;
 
-    procedure trace_OPIMM(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
+    procedure trace_I(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
         variable l: line := null;
     begin
         
@@ -353,7 +346,7 @@ package body IO_pack is
         writeline(f, l);
     end procedure;
 
-    procedure trace_LUI(opcodem: mnemonic_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
+    procedure trace_U(opcodem: mnemonic_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
         variable l: line := null;
         begin
         write(l, opcodem & ' ');
@@ -367,19 +360,7 @@ package body IO_pack is
         writeline(f, l);
     end procedure;
 
-    procedure trace_AUIPC(opcodem: mnemonic_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0); PC : addr_type; regs: regs_type; f: inout text) is
-        variable l: line := null;
-        begin
-        write(l, opcodem & ' ');
-        write(l, decode_reg_addr(rd) & ' ');
-        write(l, bitvec_to_hex_string(imm3112) & " @ ");
-        write(l, bitvec_to_hex_string(PC) & ' ');
-        for i in regs'range loop
-            --write(l, "x" & integer'image(i) & ": "); this will be in the header
-            write(l, bitvec_to_hex_string(regs(i)) & ' ');
-        end loop;
-        writeline(f, l);
-    end procedure;
+    
 
     
 end package body;

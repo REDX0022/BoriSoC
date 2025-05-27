@@ -38,10 +38,10 @@ package mnemonic_pack is
     constant SRAm: mnemonic_type := "SRA   ";
 
 
-    function construct_OP(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type;
-    function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
-    function construct_LUI(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
-    function construct_AUIPC(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
+    function construct_R(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type;
+    function construct_I(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
+    function construct_U(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
+    
     function decode_regm(name : string) return reg_addr_type;
     function decode_reg_addr(addr : reg_addr_type) return string;
     end package;
@@ -50,27 +50,23 @@ package mnemonic_pack is
     -- naming functinos after opcodes means there will be duplicates, but that is file for now 
 package body mnemonic_pack is
 
-    function construct_OP(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type is
+    function construct_R(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type is
         begin
             return (funct7 & rs2 & rs1 & funct3 & rd & opcode);
     end function;
 
-    function construct_OPIMM(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
+    function construct_I(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type is
         begin
         return (imm110 & rs1 & funct3 & rd & opcode);
     end function;
 
-    function construct_LUI(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type is
+    function construct_U(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type is
        
         begin
             return (imm3112 & rd & opcode);
     end function;
 
-    function construct_AUIPC(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type is
-        
-        begin
-            return (imm3112 & rd & opcode);
-    end function;
+    
 
 
     function decode_regm(name : string) return reg_addr_type is

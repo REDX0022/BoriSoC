@@ -177,7 +177,7 @@ architecture TB of testbench is
                                     report "Unknown funct3 for OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                     exit test_loop; -- Exit the loop on unknown funct3
                         end case;
-                        trace_OP(instrm, rd, rs1, rs2, PC_trace, regs_trace, trace_f);
+                        trace_R(instrm, rd, rs1, rs2, PC_trace, regs_trace, trace_f);
 
                     when OPIMM =>
                     case funct3 is
@@ -220,7 +220,7 @@ architecture TB of testbench is
                                 exit test_loop; -- Exit the loop on unknown funct3
                         -- Handle OPIMM instructions here
                         end case;
-                        trace_OPIMM(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
+                        trace_I(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
                     when LOAD =>
                         report "LOAD instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle LOAD instructions here
@@ -233,13 +233,13 @@ architecture TB of testbench is
                     when LUI =>
                         --report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         instrm := LUIm;
-                        trace_LUI(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
+                        trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                         -- Handle LUI instructions here
                     when AUIPC =>
                         --report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle AUIPC instructions here
                         instrm := AUIPCm;
-                        trace_AUIPC(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
+                        trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                     when JAL =>
                         report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here
