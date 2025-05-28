@@ -37,10 +37,23 @@ package mnemonic_pack is
     constant SRLm: mnemonic_type := "SRL   ";
     constant SRAm: mnemonic_type := "SRA   ";
 
+    constant JALm: mnemonic_type := "JAL   ";
+    constant JALRm: mnemonic_type := "JALR  ";
+
+    constant BEQm: mnemonic_type := "BEQ   ";
+    constant BNEm: mnemonic_type := "BNE   ";
+    constant BLTm: mnemonic_type := "BLT   ";
+    constant BGEm: mnemonic_type := "BGE   ";
+    constant BLTUm: mnemonic_type := "BLTU  ";
+    constant BGEUm: mnemonic_type := "BGEU  ";
+
+
+
 
     function construct_R(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; funct7: funct7_type) return instr_type;
     function construct_I(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
     function construct_U(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
+    function construct_B(opcode: opcode_type; funct3: funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; imm: bit_vector(11 downto 0) ) return instr_type;
     
     function decode_regm(name : string) return reg_addr_type;
     function decode_reg_addr(addr : reg_addr_type) return string;
@@ -65,6 +78,24 @@ package body mnemonic_pack is
         begin
             return (imm3112 & rd & opcode);
     end function;
+
+    function construct_B(opcode: opcode_type; funct3: funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; imm: bit_vector(11 downto 0) ) return instr_type is
+        variable imm12: bit;
+        variable imm10_5: bit_vector(5 downto 0);
+        variable imm4_1: bit_vector(3 downto 0);
+        variable imm11: bit;
+        variable imm0: bit;
+        begin
+            -- Split the immediate into its components
+            imm12 := imm(11);
+            imm10_5 := imm(10 downto 5);
+            imm4_1 := imm(4 downto 1);
+            imm11 := imm(0); 
+            -- Construct the instruction
+            return (imm12 & imm10_5 & rs2 & rs1 & funct3 & imm4_1 & imm11 & opcode);
+    end function;
+
+   
 
     
 

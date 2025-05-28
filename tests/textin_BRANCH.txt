@@ -1,0 +1,76 @@
+@ 0000 ;NOTE I REALLY DONT KNOW IF THIS ACTUALLY WORKS, CANT BE BOTHERED TO CHECK
+ADDI x1 x0 000      ; x1 = 0 (loop counter)
+ADDI x2 x0 005      ; x2 = 5 (loop limit)
+ADDI x3 x0 000      ; x3 = 0 (sum)
+ADDI x4 x0 001      ; x4 = 1 (increment)
+ADDI x5 x0 00A      ; x5 = 10 (for unsigned test)
+ADDI x6 x0 005      ; x6 = 5 (for unsigned test)
+ADDI x7 x0 000      ; x7 = 0 (used for while loop)
+ADD x0 x0 x0         ; Jump to @0020 (for-loop test)
+
+@ 0020
+; For-loop: for (x1 = 0; x1 < 5; x1++) x3 += x1
+BLT  x1 x2 008      ; if x1 < x2, jump to LOOP_BODY (@0028)
+JAL  x0 00010        ; else, jump to AFTER_FOR (@0034)
+; LOOP_BODY:
+ADD  x3 x3 x1       ; x3 += x1
+ADDI x1 x1 001      ; x1++
+JAL  x0 FFFF0        ; jump back to FOR_LOOP_START (@0020)
+; AFTER_FOR:
+ADDI x8 x3 000      ; x8 = x3 (save sum for checking)
+JAL x0 00010         ; Jump to @0048 (while-loop test)
+
+@ 0048
+; While-loop: while (x5 > x6) x5--
+BLTU x6 x5 008      ; if x5 > x6 (unsigned), jump to WHILE_BODY (@0050)
+JAL  x0 00010        ; else, jump to AFTER_WHILE (@005C)
+; WHILE_BODY:
+ADDI x5 x5 FFF      ; x5--
+JAL  x0 FFFF4        ; jump back to WHILE_LOOP_START (@0048)
+; AFTER_WHILE:
+ADDI x9 x5 000      ; x9 = x5 (save result for checking)
+JAL x0 0000C         ; Jump to @0068 (BEQ test)
+
+@ 0068
+; BEQ test: if (x4 == 1) x7 = 123
+BEQ  x4 x4 008      ; always true, jump to BEQ_TRUE (@0070)
+ADDI x7 x0 999      ; should be skipped
+; BEQ_TRUE:
+ADDI x7 x0 123      ; x7 = 123
+JAL x0 00010         ; Jump to @0084 (BNE test)
+
+@ 0084
+; BNE test: if (x1 != x2) x10 = 1 else x10 = 2
+BNE  x1 x2 008      ; if x1 != x2, jump to BNE_TRUE (@008C)
+ADDI x10 x0 002     ; x10 = 2 (should be skipped if branch taken)
+JAL  x0 00008        ; skip next if branch not taken
+; BNE_TRUE:
+ADDI x10 x0 001     ; x10 = 1
+JAL x0 0000C         ; Jump to @00A0 (BLT/BGE/BLTU/BGEU test)
+
+@ 00A0
+ADDI x11 x0 FFF     ; x11 = -1 (0xFFFFFFFF)
+ADDI x12 x0 001     ; x12 = 1
+
+BLT  x11 x12 008    ; if -1 < 1 (signed), jump to BLT_TRUE (@00A8)
+ADDI x13 x0 111     ; should be skipped
+; BLT_TRUE:
+ADDI x13 x0 222     ; x13 = 222
+
+BGE  x12 x11 008    ; if 1 >= -1 (signed), jump to BGE_TRUE (@00B0)
+ADDI x14 x0 111     ; should be skipped
+; BGE_TRUE:
+ADDI x14 x0 222     ; x14 = 222
+
+BLTU x12 x11 008    ; if 1 < 0xFFFFFFFF (unsigned), jump to BLTU_TRUE (@00B8)
+ADDI x15 x0 111     ; should be skipped
+; BLTU_TRUE:
+ADDI x15 x0 222     ; x15 = 222
+
+BGEU x11 x12 008    ; if 0xFFFFFFFF >= 1 (unsigned), jump to BGEU_TRUE (@00C0)
+ADDI x16 x0 111     ; should be skipped
+; BGEU_TRUE:
+ADDI x16 x0 222     ; x16 = 222
+
+@ 00D8
+ADDI x0 x0 000      ; NOP

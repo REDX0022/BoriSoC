@@ -31,6 +31,7 @@ architecture TB of testbench is
     signal cycle_SoC_begin: bit := '0';
     signal cycle_SoC_end: bit := '0';
     signal mem_init_SoC_done: bit := '0';
+    signal cpu_done: bit := '0';
 
     signal mem_temp: mem_type;
 
@@ -52,7 +53,8 @@ architecture TB of testbench is
                 regs_out: out regs_type;
                 cycle_begin: in bit;
                 cycle_end: out bit;
-                mem_init_done: out bit
+                mem_init_done: out bit;
+                cpu_done: out bit
 
             );
     end component;
@@ -68,7 +70,8 @@ architecture TB of testbench is
             regs_out => regs_trace,
             cycle_begin => cycle_SoC_begin,
             cycle_end => cycle_SoC_end,
-            mem_init_done => mem_init_SoC_done
+            mem_init_done => mem_init_SoC_done,
+            cpu_done => cpu_done
         );
 
         process 
@@ -88,7 +91,7 @@ architecture TB of testbench is
         variable imm12: bit;
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
-        variable imm11B: bit;
+        variable imm11_B: bit;
         variable imm3112: bit_vector(19 downto 0);
         variable imm20: bit;
         variable imm101: bit_vector(9 downto 0);
@@ -101,15 +104,20 @@ architecture TB of testbench is
             wait for 10 ns; -- Wait for memory initialization
             mem_tb_out <= mem_temp;
             
-           
-
+            
+            
             -- Start the first instruction
             --Make the trace look nice
             write(l, trace_header);
             writeline(trace_f, l);
             test_loop: loop
                 
-                wait on cycle_SoC_end;
+                if(cpu_done = '0') then
+                    wait on cycle_SoC_end;
+                else 
+                    report "CPU done, exiting test loop.";
+                    exit test_loop; -- Exit the loop if CPU is done
+                end if;
                 -- Now do your trace/logging
                 code    := instr_trace(6 downto 0);
                 rd      := instr_trace(11 downto 7);
@@ -124,7 +132,7 @@ architecture TB of testbench is
                 imm12   := instr_trace(31);
                 imm105  := instr_trace(30 downto 25);
                 imm41   := instr_trace(11 downto 8);
-                imm11B  := instr_trace(7);  -- exception naming
+                imm11_B  := instr_trace(7);  -- exception naming
                 imm3112 := instr_trace(31 downto 12);
                 imm20   := instr_trace(31);
                 imm101  := instr_trace(30 downto 21);
@@ -227,9 +235,6 @@ architecture TB of testbench is
                     when STORE =>
                         report "STORE instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle STORE instructions here
-                    when BRANCH =>
-                        report "BRANCH instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle BRANCH instructions here
                     when LUI =>
                         --report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         instrm := LUIm;
@@ -241,8 +246,40 @@ architecture TB of testbench is
                         instrm := AUIPCm;
                         trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                     when JAL =>
-                        report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        --report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here
+                        instrm := JALm;
+                        trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f); --this should be fine
+                    when JALR =>
+                        --report "JALR instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        -- Handle JALR instructions here
+                        instrm := JALRm;
+                        trace_I(instrm, rd, rs1, imm110, PC_trace, regs_trace, trace_f);
+                    when BRANCH =>
+                        case funct3 is
+                            when BEQf3 =>
+                                instrm := BEQm;
+                                -- Handle BEQ instructions here
+                            when BNEf3 =>
+                                instrm := BNEm;
+                                -- Hanle BNE instructions here
+                            when BLTf3 =>
+                                instrm := BLTm;
+                                -- Handle BLT instructions here
+                            when BGEf3 =>
+                                instrm := BGEm;
+                                -- Handle BGE instructions here
+                            when BLTUf3 =>
+                                instrm := BLTUm;
+                                -- Handle BLTU instructions here
+                            when BGEUf3 =>
+                                instrm := BGEUm;
+                                -- Handle BGEU instructions here
+                            when others =>
+                                report "Unknown funct3 for BRANCH instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                                exit test_loop; -- Exit the loop on unknown funct3
+                        end case;
+                        trace_B(instrm,imm11_B,imm41, rs1, rs2,imm105,imm12 , PC_trace, regs_trace, trace_f);                        
                     when others =>
                         report "Unknown instruction fetched, exiting testbench: " & bitvec_to_bitstring(instr_trace);
                         exit test_loop; -- Exit the loop on unknown instruction
@@ -254,7 +291,8 @@ architecture TB of testbench is
                
             end loop;
 
-            dump_memory(dump_path, mem_tb_out);
+
+            dump_memory(dump_path, mem_tb_in);
             file_close(trace_f);
             file_close(dump_f);
             report "Testbench completed.";

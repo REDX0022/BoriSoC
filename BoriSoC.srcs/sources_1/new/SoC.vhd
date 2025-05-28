@@ -46,7 +46,8 @@ entity SoC is
         regs_out: out regs_type;
         cycle_begin: in bit;
         cycle_end: out bit;
-        mem_init_done: out bit
+        mem_init_done: out bit;
+        cpu_done : out bit
     );
 
 end SoC;
@@ -77,7 +78,7 @@ architecture functional of SoC is
         variable imm12: bit;
         variable imm105: bit_vector(5 downto 0);
         variable imm41: bit_vector(3 downto 0);
-        variable imm11B: bit;
+        variable imm11_B: bit;
         variable imm3112: bit_vector(19 downto 0);
         variable imm20: bit;
         variable imm101: bit_vector(9 downto 0);
@@ -133,7 +134,7 @@ architecture functional of SoC is
             imm12 := instr(31);
             imm105 := instr(30 downto 25);
             imm41 := instr(11 downto 8);
-            imm11B := instr(7);  -- exception naming
+            imm11_B := instr(7);  -- exception naming
             imm3112 := instr(31 downto 12);
             imm20 := instr(31);
             imm101 := instr(30 downto 21);
@@ -269,7 +270,7 @@ architecture functional of SoC is
                 when LOAD =>
                 
                 when STORE =>
-                when BRANCH =>
+                
                 when AUIPC =>
                     if(rd /= "00000") then
                         --report "GOT INTO AUIPC";
@@ -284,16 +285,65 @@ architecture functional of SoC is
                     end if;
                     PC:= slice_msb(PC+X"0004");
                 when FENCE => --dont need to support
-                -- when JAL =>
-                --         PC := slice_msb(PC + (signext_bv2dw(imm20 & imm101 & imm11J & imm1912 & 0))(15 downto 0)); --to match the 16 bit address space 
-                --         if(rd /= "00000") then
-                --             regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
-                --         end if;
-                -- when JARL =>
-                --         PC := slice_lsb(slice_msb(PC + bv_to_word(imm110))) & '0'; --some bit magic
-                --         if (rd /= "00000") then
-                --             regs(bv_to_integer(rd)) := slice_msb(PC + X"0004"); 
-                --         end if;
+                when JAL =>
+                    imm1912(imm1912'right) := '0';
+                    if(rd /= "00000") then
+                        regs(bv_to_integer(rd)) := X"0000" & slice_msb(PC + X"0004"); 
+                    end if;
+                    PC := slice_msb(PC + signext_bv2dw(imm20 & imm101 & imm11J & imm1912)(15 downto 0)); --to match the 16 bit address space 
+                when JALR =>
+                    if (rd /= "00000") then
+                        regs(bv_to_integer(rd)) := X"0000" & slice_msb(PC + X"0004"); 
+                    end if;
+                    PC := slice_lsb(slice_msb(PC + signext_bv2w(imm110))) & '0'; --some bit magic
+                when BRANCH =>
+                    case funct3 is
+                        when BEQf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (regs(bv_to_integer(rs1)) = regs(bv_to_integer(rs2))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when BNEf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (regs(bv_to_integer(rs1)) /= regs(bv_to_integer(rs2))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when BLTf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (bv_to_signed_integer(regs(bv_to_integer(rs1))) < bv_to_signed_integer(regs(bv_to_integer(rs2)))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when BGEf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (bv_to_signed_integer(regs(bv_to_integer(rs1))) >= bv_to_signed_integer(regs(bv_to_integer(rs2)))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when BLTUf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (bv_to_unsigned(regs(bv_to_integer(rs1))) < bv_to_unsigned(regs(bv_to_integer(rs2)))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when BGEUf3 =>
+                            imm105(imm105'right) := '0'; --make sure the last bit is 0
+                            if (bv_to_unsigned(regs(bv_to_integer(rs1))) >= bv_to_unsigned(regs(bv_to_integer(rs2)))) then
+                                PC := slice_msb(PC + signext_bv2dw(imm12 & imm105 & imm41 & imm11_B)(15 downto 0));
+                            else
+                                PC := slice_msb(PC + X"0004");
+                            end if;
+                        when others =>
+                            report "illegal insruction in BRANCH" severity error; --also print to trace here
+                            exit CPU_loop;
+                    end case;
                 when SYSTEM => --dont need to support
                 when others =>
                     report "illegal insruction" severity error; --also print to trace here
@@ -312,7 +362,12 @@ architecture functional of SoC is
                     --report "after increment pc is"  & bitvec_to_bitstring(PC) & " or in intger form " &integer'image(bv_to_integer(PC));
             wait for 20 ns;
         end loop;
+        report "CPU loop ended";
+        --we need to cycle the testbench once more to get the mem dump 
+        cycle_end_helper := not cycle_end_helper; --helper signal to detect cycle end
+        cycle_end <= cycle_end_helper; --output the cycle end signal    
         mem_out <= mem; --output the memory state   
+        cpu_done <= '1'; --signal that the CPU has finished execution
         wait;
     end process;
 end functional;

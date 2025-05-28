@@ -89,9 +89,16 @@ package def_pack is
         constant ADDf7: funct7_type := "0000000"; 
         constant SUBf7: funct7_type := "0100000"; --NOTE: could be factored out as primary and secondary funct7
     constant LOAD: opcode_type := "0000011";
-    constant JARL: opcode_type := "1100111";
+    constant JALR: opcode_type := "1100111";
+        constant JALRf3: funct3_type := "000"; --NOTE: this is the only funct3 for JALR
     constant STORE: opcode_type := "0100011";
     constant BRANCH: opcode_type := "1100011";
+        constant BEQf3: funct3_type := "000";
+        constant BNEf3: funct3_type := "001";
+        constant BLTf3: funct3_type := "100";
+        constant BGEf3: funct3_type := "101";
+        constant BLTUf3: funct3_type := "110";
+        constant BGEUf3: funct3_type := "111";
     constant AUIPC: opcode_type := "0010111";
     constant LUI: opcode_type := "0110111";
     constant JAL: opcode_type := "1101111";
@@ -123,6 +130,7 @@ package def_pack is
     function bv_to_unsigned(bv: bit_vector) return unsigned;
 
     function signext_bv2dw(bv: bit_vector) return dword_type;
+    function signext_bv2w(bv: bit_vector) return word_type;
 
     function bitvec_to_hex_string(bv : bit_vector) return string;
     
@@ -370,6 +378,30 @@ package body def_pack is
 
        return res;
     end function;
+
+    function signext_bv2w(bv: bit_vector) return word_type is
+       variable res: word_type := X"0000";
+       variable sign_bit: bit := '0';
+       variable i: integer;
+       variable res_idx: integer := bv'length -1; -- Index for result vector
+    begin
+       -- Sign-extend bit_vector to word_type (16 bits)
+       if bv'length = 0 then
+          return res;
+       end if;
+
+       sign_bit := bv(bv'left);
+       -- Copy input bits to LSB of result using a separate index for res
+       for i in bv'range loop
+          res(res_idx) := bv(i);
+          res_idx := res_idx - 1;
+       end loop;
+       -- Sign-extend if input is shorter than 16 bits
+       for i in bv'length to 15 loop
+          res(i) := sign_bit;
+       end loop;
+       return res;
+    end function;   
      
      
     

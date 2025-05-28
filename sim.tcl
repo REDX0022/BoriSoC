@@ -25,3 +25,6 @@ add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd
 #set_property top testbench [get_filesets sim_1]
 
 launch_simulation -mode behavioral
+
+#extend simulation time
+run 10 us
