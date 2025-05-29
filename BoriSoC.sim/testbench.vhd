@@ -229,12 +229,6 @@ architecture TB of testbench is
                         -- Handle OPIMM instructions here
                         end case;
                         trace_I(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
-                    when LOAD =>
-                        report "LOAD instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle LOAD instructions here
-                    when STORE =>
-                        report "STORE instruction fetched: " & bitvec_to_bitstring(instr_trace);
-                        -- Handle STORE instructions here
                     when LUI =>
                         --report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         instrm := LUIm;
@@ -279,11 +273,51 @@ architecture TB of testbench is
                                 report "Unknown funct3 for BRANCH instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                 exit test_loop; -- Exit the loop on unknown funct3
                         end case;
-                        trace_B(instrm,imm11_B,imm41, rs1, rs2,imm105,imm12 , PC_trace, regs_trace, trace_f);                        
+                        report "VISIBLE";
+                        report "imm41: " & bitvec_to_bitstring(imm41);
+                        trace_B(instrm,imm11_B,imm41, rs1, rs2,imm105,imm12 , PC_trace, regs_trace, trace_f);    
+                    when LOAD =>
+                        case funct3 is
+                            when LBf3 =>
+                                instrm := LBm;
+                                -- Handle LB instructions here
+                            when LBUf3 =>
+                                instrm := LBUM;
+                                -- Handle LBU instructions here
+                            when LHf3 =>
+                                instrm := LHm;
+                                -- Handle LH instructions here
+                            when LHUf3 =>
+                                instrm := LHUIm;
+                                -- Handle LHU instructions here
+                            when LWf3 =>
+                                instrm := LWm;
+                                -- Handle LW instructions here
+                            when others =>
+                                report "Unknown funct3 for LOAD instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                                exit test_loop; -- Exit the loop on unknown funct3
+                        end case;
+                        trace_I(instrm, rd, rs1, imm110, PC_trace, regs_trace, trace_f);
+                    when STORE =>
+                        case funct3 is
+                            when SBf3 =>
+                                instrm := SBm;
+                                -- Handle SB instructions here
+                            when SHf3 =>
+                                instrm := SHm;
+                                -- Handle SH instructions here
+                            when SWf3 =>
+                                instrm := SWm;
+                                -- Handle SW instructions here
+                            when others =>
+                                report "Unknown funct3 for STORE instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                                exit test_loop; -- Exit the loop on unknown funct3
+                        end case;
+                        trace_S(instrm,imm40, rs1, rs2, imm115, PC_trace, regs_trace, trace_f);                
                     when others =>
                         report "Unknown instruction fetched, exiting testbench: " & bitvec_to_bitstring(instr_trace);
                         exit test_loop; -- Exit the loop on unknown instruction
-
+                    
                 end case;
                 report "Trace done";
 

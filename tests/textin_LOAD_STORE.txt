@@ -1,0 +1,69 @@
+; Initialize base address and data patterns
+ADDI x1 x0 100      ; x1 = 0x100 (base address)
+ADDI x2 x0 07F      ; x2 = 0x7F
+ADDI x3 x0 080      ; x3 = 0x80
+ADDI x4 x0 234      ; x4 = 0x234
+ADDI x5 x0 EDC      ; x5 = 0xEDC
+ADDI x6 x0 123      ; x6 = 0x123
+
+; Store bytes
+SB x2 x1 000        ; mem[0x100] = 0x7F
+SB x3 x1 001        ; mem[0x101] = 0x80
+SB x2 x1 002        ; mem[0x102] = 0x7F
+SB x3 x1 003        ; mem[0x103] = 0x80
+
+; Store halfwords
+SH x4 x1 004        ; mem[0x104] = 0x0234 (little endian: 0x34, 0x02)
+SH x5 x1 006        ; mem[0x106] = 0x0EDC (little endian: 0xDC, 0x0E)
+
+; Store word
+SW x6 x1 008        ; mem[0x108] = 0x00000123
+
+; --- LOAD TESTS ---
+
+; LB: signed byte loads
+LB x10 x1 000       ; x10 = 0x7F
+LB x11 x1 001       ; x11 = 0x80 (should be sign-extended)
+LB x12 x1 002       ; x12 = 0x7F
+LB x13 x1 003       ; x13 = 0x80
+
+; LBU: unsigned byte loads
+LBU x14 x1 000      ; x14 = 0x7F
+LBU x15 x1 001      ; x15 = 0x80
+LBU x16 x1 002      ; x16 = 0x7F
+LBU x17 x1 003      ; x17 = 0x80
+
+; LH: signed halfword loads
+LH x18 x1 004       ; x18 = 0x0234
+LH x19 x1 006       ; x19 = 0x0EDC (should be sign-extended)
+
+; LHU: unsigned halfword loads
+LHU x20 x1 004      ; x20 = 0x0234
+LHU x21 x1 006      ; x21 = 0x0EDC
+
+; LW: word load
+LW x22 x1 008       ; x22 = 0x00000123
+
+; --- MISALIGNED LOADS (for LB/LBU/LH/LHU) ---
+LB x23 x1 005       ; x23 = mem[0x105]
+LBU x24 x1 005      ; x24 = mem[0x105]
+LH x25 x1 005       ; x25 = mem[0x105-0x106]
+LHU x26 x1 005      ; x26 = mem[0x105-0x106]
+
+; --- STORE/LOAD OVERWRITE TESTS ---
+ADDI x7 x0 0AA      ; x7 = 0xAA
+SB x7 x1 000        ; mem[0x100] = 0xAA
+LB x27 x1 000       ; x27 = 0xFFFFFFAA (sign-extended)
+LBU x28 x1 000      ; x28 = 0xAA
+
+ADDI x8 x0 EEF      ; x8 = 0xEEF
+SH x8 x1 002        ; mem[0x102] = 0x0EEF
+LH x29 x1 002       ; x29 = 0x00000EEF (sign-extended)
+LHU x30 x1 002      ; x30 = 0x0EEF
+
+ADDI x9 x0 EAD      ; x9 = 0xEAD
+SW x9 x1 004        ; mem[0x104] = 0x00000EAD
+LW x31 x1 004       ; x31 = 0x00000EAD
+
+; End
+ADDI x0 x0 000

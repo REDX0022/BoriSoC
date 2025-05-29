@@ -6,3 +6,6 @@ GREAT TODOs:
             -TO add an instruction, you need to add it to the soc, the IO_pack both for input and output
                 - new mnemonic in the mnemonic_pack
                 - new opcode defs in the def_pac...
+
+            -KNOWN BUG:
+                - in the trace of B type instr the imm does not get traced propertly, some bit ordering stuff

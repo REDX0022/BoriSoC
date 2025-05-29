@@ -89,9 +89,17 @@ package def_pack is
         constant ADDf7: funct7_type := "0000000"; 
         constant SUBf7: funct7_type := "0100000"; --NOTE: could be factored out as primary and secondary funct7
     constant LOAD: opcode_type := "0000011";
+        constant LBf3: funct3_type := "000";
+        constant LHf3: funct3_type := "001";
+        constant LWf3: funct3_type := "010";
+        constant LBUf3: funct3_type := "100";
+        constant LHUf3: funct3_type := "101";
     constant JALR: opcode_type := "1100111";
         constant JALRf3: funct3_type := "000"; --NOTE: this is the only funct3 for JALR
     constant STORE: opcode_type := "0100011";
+        constant SBf3: funct3_type := "000";
+        constant SHf3: funct3_type := "001";
+        constant SWf3: funct3_type := "010";
     constant BRANCH: opcode_type := "1100011";
         constant BEQf3: funct3_type := "000";
         constant BNEf3: funct3_type := "001";
@@ -129,8 +137,16 @@ package def_pack is
     function bv_to_signed_integer(bv : bit_vector) return integer;
     function bv_to_unsigned(bv: bit_vector) return unsigned;
 
+    --------------------Sign and Zero extentinon functions-------------------
+
     function signext_bv2dw(bv: bit_vector) return dword_type;
     function signext_bv2w(bv: bit_vector) return word_type;
+    function signext_b2dw(byte: byte_type) return dword_type;
+    function signext_w2dw(word: word_type) return dword_type;
+    function zeroext_b2dw(byte: byte_type) return dword_type;
+    function zeroext_w2dw(word: word_type) return dword_type;
+
+    ----------------------Bit vector functions-----------------------------
 
     function bitvec_to_hex_string(bv : bit_vector) return string;
     
@@ -142,6 +158,9 @@ package def_pack is
     function get_byte(addr: addr_type; mem: mem_type) return byte_type; -- does not perfrom extention
     function get_word(addr: addr_type; mem: mem_type) return word_type;
     function get_dword(addr: addr_type; mem: mem_type) return dword_type;
+    procedure put_byte(addr: addr_type; data: byte_type; mem: inout mem_type); -- does not perfrom extention
+    procedure put_word(addr: addr_type; data: word_type; mem: inout mem_type);
+    procedure put_dword(addr: addr_type; data: dword_type; mem: inout mem_type);
     
     
     ----------------------ALU functions-------------------------------
@@ -379,6 +398,7 @@ package body def_pack is
        return res;
     end function;
 
+
     function signext_bv2w(bv: bit_vector) return word_type is
        variable res: word_type := X"0000";
        variable sign_bit: bit := '0';
@@ -402,6 +422,8 @@ package body def_pack is
        end loop;
        return res;
     end function;   
+
+    
      
      
     
@@ -425,7 +447,25 @@ package body def_pack is
          
          return mem(bv_to_integer(addr)+3) & mem(bv_to_integer(addr)+2) & mem(bv_to_integer(addr)+1) & mem(bv_to_integer(addr));
     end function;
+
+    procedure put_byte(addr: addr_type; data: byte_type; mem: inout mem_type) is
+        begin
+        mem(bv_to_integer(addr)) := data; --TODO: check if this is correct
+    end procedure;
+
+    procedure put_word(addr: addr_type; data: word_type; mem: inout mem_type) is
+        begin
+        mem(bv_to_integer(addr)) := data(7 downto 0); --TODO: check if this is correct
+        mem(bv_to_integer(addr)+1) := data(15 downto 8); --TODO: check if this is correct
+    end procedure;
     
+    procedure put_dword(addr: addr_type; data: dword_type; mem: inout mem_type) is
+        begin
+        mem(bv_to_integer(addr)) := data(7 downto 0); --TODO: check if this is correct
+        mem(bv_to_integer(addr)+1) := data(15 downto 8); --TODO: check if this is correct
+        mem(bv_to_integer(addr)+2) := data(23 downto 16); --TODO: check if this is correct
+        mem(bv_to_integer(addr)+3) := data(31 downto 24); --TODO: check if this is correct
+    end procedure;
     ---------------------ALU functions------------------------------------
     function max(a, b : integer) return integer is
     begin

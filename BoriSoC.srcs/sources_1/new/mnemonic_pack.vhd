@@ -47,6 +47,17 @@ package mnemonic_pack is
     constant BLTUm: mnemonic_type := "BLTU  ";
     constant BGEUm: mnemonic_type := "BGEU  ";
 
+    constant LBm: mnemonic_type := "LB    ";
+    constant LBUM: mnemonic_type := "LBU   ";
+    constant LHm: mnemonic_type := "LH    ";
+    constant LHUIm: mnemonic_type := "LHU   ";
+    constant LWm: mnemonic_type := "LW    ";
+
+    constant SBm: mnemonic_type := "SB    ";
+    constant SHm: mnemonic_type := "SH    ";
+    constant SWm: mnemonic_type := "SW    ";
+
+
 
 
 
@@ -54,7 +65,9 @@ package mnemonic_pack is
     function construct_I(opcode: opcode_type; rd: reg_addr_type; funct3 : funct3_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0)) return instr_type;
     function construct_U(opcode: opcode_type; rd: reg_addr_type; imm3112: bit_vector(19 downto 0)) return instr_type;
     function construct_B(opcode: opcode_type; funct3: funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; imm: bit_vector(11 downto 0) ) return instr_type;
-    
+    function construct_S(opcode: opcode_type; funct3: funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; imm: bit_vector(11 downto 0)) return instr_type;
+
+
     function decode_regm(name : string) return reg_addr_type;
     function decode_reg_addr(addr : reg_addr_type) return string;
     end package;
@@ -94,7 +107,18 @@ package body mnemonic_pack is
             -- Construct the instruction
             return (imm12 & imm10_5 & rs2 & rs1 & funct3 & imm4_1 & imm11 & opcode);
     end function;
-
+    
+    function construct_S(opcode: opcode_type; funct3: funct3_type; rs1: reg_addr_type; rs2: reg_addr_type; imm: bit_vector(11 downto 0)) return instr_type is
+        variable imm115: bit_vector(6 downto 0);
+        variable imm4_0: bit_vector(4 downto 0);
+        begin
+            -- Split the immediate into its components
+            imm115 := imm(11 downto 5);
+            imm4_0 := imm(4 downto 0);
+            -- Construct the instruction
+            return (imm115 & rs2 & rs1 & funct3 & imm4_0 & opcode);
+    
+    end function;
    
 
     

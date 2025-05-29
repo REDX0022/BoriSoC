@@ -25,7 +25,7 @@ package IO_pack is
     procedure trace_I(opcodem: mnemonic_type; rd: reg_addr_type; rs1: reg_addr_type; imm110: bit_vector(11 downto 0); PC: addr_type;regs: regs_type; f: inout text);
     procedure trace_U(opcodem : mnemonic_type; rd: reg_addr_type; imm3112 : bit_vector(19 downto 0); PC: addr_type; regs: regs_type; f: inout text);
     procedure trace_B(opcodem: mnemonic_type; imm11_B: bit; imm41: bit_vector(3 downto 0); rs1: reg_addr_type; rs2: reg_addr_type; imm105: bit_vector(5 downto 0); imm12: bit; PC_trace: addr_type; regs: regs_type; f: inout text);
-    
+    procedure trace_S(opcodem: mnemonic_type; imm40: bit_vector(4 downto 0); rs1: reg_addr_type; rs2: reg_addr_type; imm115: bit_vector(6 downto 0); PC_trace: addr_type; regs: regs_type; f: inout text);
     end package;
 
 
@@ -273,7 +273,40 @@ package body IO_pack is
                     instr := construct_B(code, funct3, rs1, rs2, imm110);
                     put_instr(mem, curr_addr, instr);
                     curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
-            
+            when LBm | LBUM | LHm | LHUIm | LWm =>
+                    code := LOAD;
+                    case tokens(0)(1 to 6) is
+                        when LBm => funct3 := LBF3;
+                        when LBUM => funct3 := LBUF3;
+                        when LHm => funct3 := LHF3;
+                        when LHUIm => funct3 := LHUf3;
+                        when LWm => funct3 := LWF3;
+                        when others => 
+                            report "Found illegal mnemonic in LOAD";
+                            
+                    end case;
+                    rd := decode_regm(tokens(1)(1 to tokens_len(1)));
+                    rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
+                    imm110 := hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
+                    instr := construct_I(code, rd, funct3, rs1, imm110);
+                    put_instr(mem, curr_addr, instr);
+                    curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
+            when SBm | SHm | SWm =>
+                    code := STORE;
+                    case tokens(0)(1 to 6) is
+                        when SBm => funct3 := SBF3;
+                        when SHm => funct3 := SHF3;
+                        when SWm => funct3 := SWF3;
+                        when others => 
+                            report "Found illegal mnemonic in STORE";
+                            
+                    end case;
+                    rs2 := decode_regm(tokens(1)(1 to tokens_len(1)));
+                    rs1 := decode_regm(tokens(2)(1 to tokens_len(2)));
+                    imm110 := hexstring_to_bitvec(tokens(3)(1 to tokens_len(3)));
+                    instr := construct_S(code, funct3, rs1, rs2, imm110);
+                    put_instr(mem, curr_addr, instr);
+                    curr_addr := slice_msb(curr_addr+ X"0004"); --instr is 4 bytes
 
 
 
@@ -380,14 +413,32 @@ package body IO_pack is
             write(l, opcodem & ' ');
             write(l, decode_reg_addr(rs1) & ' ');
             write(l, decode_reg_addr(rs2) & ' ');
-            write(l, bitvec_to_hex_string(imm12 & imm105 & imm41 & imm11_B) & " @ ");
+            report "VISIBLE";
+                report "imm41: " & bitvec_to_bitstring(imm41);
+            write(l, bitvec_to_hex_string(imm12 & imm41 & imm105 & imm11_B) & " @ "); --TODO: check why this messes up or not bcs its changed rerun texin_BRANCH
             write(l, bitvec_to_hex_string(PC_trace) & ' ');
             for i in regs'range loop
                 --write(l, "x" & integer'image(i) &x ": "); this will be in the header
                 write(l, bitvec_to_hex_string(regs(i)) & ' ');
             end loop;
             writeline(f, l);
+            end procedure;
+
+    procedure trace_S(opcodem: mnemonic_type; imm40: bit_vector(4 downto 0); rs1: reg_addr_type; rs2: reg_addr_type; imm115: bit_vector(6 downto 0) ;PC_trace: addr_type; regs: regs_type; f: inout text) is
+        variable l: line := null;
+        begin
+            write(l, opcodem & ' ');
+            write(l, decode_reg_addr(rs1) & ' ');
+            write(l, decode_reg_addr(rs2) & ' ');
+            write(l, bitvec_to_hex_string(imm115 & imm40) & " @ ");
+            write(l, bitvec_to_hex_string(PC_trace) & ' ');
+            for i in regs'range loop
+                --write(l, "x" & integer'image(i) & ": "); this will be in the header
+                write(l, bitvec_to_hex_string(regs(i)) & ' ');
+            end loop;
+            writeline(f, l);
     end procedure;
+            
 
       
     
