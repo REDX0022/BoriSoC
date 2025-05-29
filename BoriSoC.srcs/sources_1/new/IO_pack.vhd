@@ -342,14 +342,17 @@ package body IO_pack is
                     writeline(outfile, outline);
                 end if;
                 outline := null;
-                write(outline, " @ " & bitvec_to_hex_string(bit_vector(to_signed(i, 32)))(5 to 8) & ": "); -- will break for 32 bit addresses, but we dont use them
-            end if;
-            byte_str := bitvec_to_hex_string(mem(i));
-            write(outline, byte_str);
-            if (i mod 4 /= 3) then
-                write(outline, string'(" "));
-            end if;
-        end loop;
+                end if;
+                byte_str := bitvec_to_hex_string(mem(i));
+                write(outline, byte_str);
+                if (i mod 4 /= 3) then
+                    write(outline, string'(" "));
+                else
+                    write(outline, " @ " & bitvec_to_hex_string(slice_msb(bit_vector(to_signed(i, 32)) + X"FFFD"))(5 to 8) & ": "); -- will break for 32 bit addresses, but we dont use them
+
+                end if;
+                end loop;
+                
         if outline'length > 0 then
             writeline(outfile, outline);
         end if;
@@ -365,7 +368,7 @@ package body IO_pack is
             write(l, opcodem & ' ');
             write(l, decode_reg_addr(rd) & ' ');
             write(l, decode_reg_addr(rs1) & ' ');
-            write(l, decode_reg_addr(rs2) & " @");
+            write(l, decode_reg_addr(rs2) & " @ ");
             write(l, bitvec_to_hex_string(PC) & ' ');
             for i in regs'range loop
                 --write(l, "x" & integer'image(i) & ": "); this will be in the header
@@ -398,7 +401,7 @@ package body IO_pack is
         begin
         write(l, opcodem & ' ');
         write(l, decode_reg_addr(rd) & ' ');
-        write(l, bitvec_to_hex_string(imm3112) & " @ ");
+        write(l, bitvec_to_hex_string(imm3112) & "   @ ");
         write(l, bitvec_to_hex_string(PC) & ' ');
         for i in regs'range loop
             --write(l, "x" & integer'image(i) & ": "); this will be in the header

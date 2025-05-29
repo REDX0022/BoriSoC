@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu May 29 16:58:15 2025
-# Process ID         : 3756
+# Start of session at: Thu May 29 19:28:15 2025
+# Process ID         : 36704
 # Current directory  : C:/Users/ceran/Documents/BoriSoC/BoriSoC
 # Command line       : vivado.exe -mode batch -source sim.tcl
 # Log file           : C:/Users/ceran/Documents/BoriSoC/BoriSoC/vivado.log
@@ -19,7 +19,7 @@
 # Host memory        : 17086 MB
 # Swap memory        : 1178 MB
 # Total Virtual      : 18264 MB
-# Available Virtual  : 3434 MB
+# Available Virtual  : 3373 MB
 #-----------------------------------------------------------
 source sim.tcl
 # puts "Cleaning Vivado backup and simulation files..."
@@ -36,13 +36,13 @@ Cleaning Vivado backup and simulation files...
 #     puts "Deleting $f"
 #     file delete -force $f
 # }
-Deleting vivado_2244.backup.jou
-Deleting vivado_2244.backup.log
+Deleting vivado_31292.backup.jou
+Deleting vivado_31292.backup.log
 # open_project BoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.598 ; gain = 192.121
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.637 ; gain = 190.352
 # add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
@@ -63,16 +63,11 @@ INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xvhdl --incr --relax -prj testbench_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/IO_pack.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd" into library xil_defaultlib
-WARNING: [VRFC 10-3165] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd:53]
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'SoC'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testbench'
-INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log"
@@ -139,201 +134,253 @@ Note: S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
+Note: ADDIS
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 800S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 400S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
+Note: x1S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: 200S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
+Note: ADDIS
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 100S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 080S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 040S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 020S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 010S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 008S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: BNES
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
+Note: x2S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: 001S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x3S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 001S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x5S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 013S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: BEQS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x5S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 020S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: SWS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x2S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x1S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 000S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x4S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x2S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x3S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x2S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x3S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 000S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x3S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x4S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 000S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x5S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x5S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: FFFS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDIS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x1S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x1S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 004S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found3
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: JALS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: FFFE4S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: SWS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x3S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x1S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 000S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: SWS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x4S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x1S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 004S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found0
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Found illegal/comment line line
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: ADDS
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000 or in intger form 0
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 10000000000000000001000001100011
+Note: 00100000000000000000000010010011
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0004 or in intger form 4
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 01000000000000000001000001100011
+Note: 00000000000100000000000100010011
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0008 or in intger form 8
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00100000000000000001000001100011
+Note: 00000000000100000000000110010011
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 000C or in intger form 12
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00010000000000000001000001100011
+Note: 00000001001100000000001010010011
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0010 or in intger form 16
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00001000000000000001000001100011
-Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
+Note: 00000010010100000000000001100011
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: VISIBLE
 Time: 100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -343,102 +390,1024 @@ Note: Trace done
 Time: 100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0014 or in intger form 20
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000100000000000001000001100011
+Note: 00000000001000001010000000100011
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0018 or in intger form 24
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000010000000000001000001100011
+Note: 00000000001100010000001000110011
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 001C or in intger form 28
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000001100001100011
+Note: 00000000000000011000000100010011
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 1000
-Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0020 or in intger form 32
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000001010001100011
+Note: 00000000000000100000000110010011
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0100
-Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0024 or in intger form 36
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000001001001100011
+Note: 11111111111100101000001010010011
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0010
-Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0028 or in intger form 40
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000001000101100011
+Note: 00000000010000001000000010010011
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0001
-Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 002C or in intger form 44
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000001000011100011
+Note: 11111111111111100100000001101111
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: VISIBLE
-Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: imm41: 0000
-Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0030 or in intger form 48
+Note: instruction fetched @ 0010 or in intger form 16
 Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000000000
+Note: 00000010010100000000000001100011
 Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Error: illegal insruction
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: CPU loop ended
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
+Note: VISIBLE
 Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Testbench completed.
+Note: imm41: 0000
 Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 280 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 300 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 320 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 360 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 400 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 440 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 460 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 480 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 520 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 560 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 600 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 620 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 640 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 680 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 720 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 760 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 780 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 800 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 840 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 880 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 900 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 900 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 900 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 920 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 940 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 960 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 980 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1 us  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 641.082 ; gain = 20.484
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 640.148 ; gain = 19.512
 # run 10 us
-INFO: [Common 17-206] Exiting Vivado at Thu May 29 16:58:40 2025...
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1020 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1040 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1060 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1060 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1060 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1080 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1280 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1300 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1320 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1360 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1400 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1440 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1460 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1480 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1520 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1560 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1600 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1620 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1640 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1680 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1720 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1760 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1780 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1800 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 1840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 1840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1840 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 1860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 1860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 1860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 1860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 1860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 1880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 1880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1880 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 1900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 1900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1900 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 1920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 1920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1920 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 1940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 1940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1940 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 1960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 1960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1960 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 1980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 1980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 1980 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2 us  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2020 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2020 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2020 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2040 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2060 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2080 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2280 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2300 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2320 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2360 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2400 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2440 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2460 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2480 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2520 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2560 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2600 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2620 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2640 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2680 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2720 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2760 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2780 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2800 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 2840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 2840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2840 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 2860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 2860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 2880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 2880 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2880 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 2900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 2900 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2900 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 2920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 2920 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2920 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 2940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 2940 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2940 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 2960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 2960 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 2960 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 2980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 2980 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 2980 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 2980 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 2980 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0014 or in intger form 20
+Time: 3 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001000001010000000100011
+Time: 3 us  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3 us  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0018 or in intger form 24
+Time: 3020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100010000001000110011
+Time: 3020 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3020 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 001C or in intger form 28
+Time: 3040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000011000000100010011
+Time: 3040 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3040 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0020 or in intger form 32
+Time: 3060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000100000000110010011
+Time: 3060 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3060 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0024 or in intger form 36
+Time: 3080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111100101000001010010011
+Time: 3080 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3080 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0028 or in intger form 40
+Time: 3100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001000000010010011
+Time: 3100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 002C or in intger form 44
+Time: 3120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 11111111111111100100000001101111
+Time: 3120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0010 or in intger form 16
+Time: 3140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000010010100000000000001100011
+Time: 3140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 3140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 3140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Trace done
+Time: 3140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0030 or in intger form 48
+Time: 3160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000001100001010000000100011
+Time: 3160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0034 or in intger form 52
+Time: 3180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000010000001010001000100011
+Time: 3180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 0038 or in intger form 56
+Time: 3200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000000000000000110011
+Time: 3200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Trace done
+Time: 3200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: instruction fetched @ 003C or in intger form 60
+Time: 3220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: 00000000000000000000000000000000
+Time: 3220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Error: illegal insruction
+Time: 3220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: CPU loop ended
+Time: 3220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
+Time: 3220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Testbench completed.
+Time: 3220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+INFO: [Common 17-206] Exiting Vivado at Thu May 29 19:28:40 2025...

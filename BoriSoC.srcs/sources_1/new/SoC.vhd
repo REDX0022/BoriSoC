@@ -383,17 +383,17 @@ architecture functional of SoC is
                 when STORE =>
                     case funct3 is
                         when SBf3 => --TODO: Implement exceptions
-                            if(rd /= "00000") then
-                                put_byte(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2))(7 downto 0), mem);
-                            end if;
+                            
+                            put_byte(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2))(7 downto 0), mem);
+                            
                         when SHf3 =>
-                            if(rd /= "00000") then
-                                put_word(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2))(15 downto 0), mem);
-                            end if;
+                            
+                            put_word(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2))(15 downto 0), mem);
+                            
                         when SWf3 =>
-                            if(rd /= "00000") then
-                                put_dword(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2)), mem);
-                            end if;
+                            
+                            put_dword(slice_msb(regs(bv_to_integer(rs1))(15 downto 0) + signext_bv2w(imm115 & imm40)), regs(bv_to_integer(rs2)), mem);
+                            
                         when others =>
                             report "illegal insruction in STORE" severity error; --also print to trace here
                             exit CPU_loop;

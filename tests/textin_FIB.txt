@@ -1,0 +1,22 @@
+@ 0000
+ADDI x1 x0 200 ; base store addr and offset counter0000
+ADDI x2 x0 001 ;first fib 0004
+ADDI x3 x0 001 ; second fib 0008
+ADDI x5 x0 013 ; number of fibs to be calc and reverse counter 000C
+
+
+;loop
+BEQ x0 x5 020 ; exit if x4 has reached 0, 0010
+SW x2 x1 000 ; store the fibs 0014
+ADD x4 x2 x3 ; calculate the next fib 0018
+ADDI x2 x3 000 ; shift the fibs 001C
+ADDI x3 x4 000 ; shift fibs 0020
+
+ADDI x5 x5 FFF ; subtract 1 from the counter 0024
+ADDI x1 x1 004 ; add 4 to the offset 0028
+JAL x0 FFFE4 ; go back to loops 002C
+SW x3 x1 000 ; 0030
+SW x4 x1 004
+
+
+ADD x0 x0 x0 ; NOP 0038
