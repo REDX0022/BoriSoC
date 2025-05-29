@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu May 29 01:29:45 2025
-# Process ID         : 5040
+# Start of session at: Thu May 29 16:58:15 2025
+# Process ID         : 3756
 # Current directory  : C:/Users/ceran/Documents/BoriSoC/BoriSoC
 # Command line       : vivado.exe -mode batch -source sim.tcl
 # Log file           : C:/Users/ceran/Documents/BoriSoC/BoriSoC/vivado.log
@@ -19,7 +19,7 @@
 # Host memory        : 17086 MB
 # Swap memory        : 1178 MB
 # Total Virtual      : 18264 MB
-# Available Virtual  : 3690 MB
+# Available Virtual  : 3434 MB
 #-----------------------------------------------------------
 source sim.tcl
 # puts "Cleaning Vivado backup and simulation files..."
@@ -36,13 +36,13 @@ Cleaning Vivado backup and simulation files...
 #     puts "Deleting $f"
 #     file delete -force $f
 # }
-Deleting vivado_10024.backup.jou
-Deleting vivado_10024.backup.log
+Deleting vivado_2244.backup.jou
+Deleting vivado_2244.backup.log
 # open_project BoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 622.422 ; gain = 194.395
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.598 ; gain = 192.121
 # add_files -fileset sim_1 ./BoriSoC.sim/testbench.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files -fileset sources_1 ./BoriSoC.srcs/sources_1/new/IO_pack.vhd
@@ -63,11 +63,16 @@ INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xvhdl --incr --relax -prj testbench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/IO_pack.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd" into library xil_defaultlib
+WARNING: [VRFC 10-3165] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/init_pack.vhd:53]
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'SoC'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testbench'
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/sim_1/behav/xsim'
 "xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log"
@@ -77,10 +82,10 @@ Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: F:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:448]
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:365]
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:441]
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:370]
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:459]
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:376]
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:452]
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/def_pack.vhd:381]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -122,23 +127,57 @@ Vivado Simulator does not yet support tracing of VHDL variables.
 WARNING: Simulation object /testbench/dump_f was not traceable in the design for the following reason:
 Vivado Simulator does not yet support tracing of VHDL variables.
 ## run 1000ns
-Note: A number of tokens was found0
+Note: A number of tokens was found2
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: @S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 0000S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 800S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Performing addition on bit_vectors of lengths 16 and 16
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: BNES
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 400S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Performing addition on bit_vectors of lengths 16 and 16
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: BNES
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 200S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Performing addition on bit_vectors of lengths 16 and 16
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: BNES
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -148,21 +187,9 @@ Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x2S
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 07FS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x3S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
@@ -172,1212 +199,246 @@ Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x4S
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 234S
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 040S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x5S
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: EDCS
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 020S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x6S
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 123S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x2S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
+Note: 010S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SBS
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x3S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 001S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x2S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x3S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 003S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x4S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x5S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 006S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SWS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x6S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: 008S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x10S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
+Note: 004S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: A number of tokens was found4
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
+Note: BNES
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x11S
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: 002S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: Performing addition on bit_vectors of lengths 16 and 16
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: A number of tokens was found4
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: BNES
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
+Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: x0S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: 001S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x12S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x13S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 003S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x14S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x15S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 001S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x16S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x17S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 003S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x18S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x19S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 006S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x20S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x21S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 006S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LWS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x22S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 008S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x23S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 005S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x24S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 005S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x25S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 005S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x26S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 005S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x7S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 0AAS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x7S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x27S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LBUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x28S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x8S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: EEFS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x8S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x29S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LHUS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x30S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 002S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x9S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: EADS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: SWS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x9S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: LWS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x31S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x1S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 004S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found0
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: Found illegal/comment line line
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: A number of tokens was found4
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: ADDIS
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: x0S
-Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: 000S
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 0 ps  Iteration: 0  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0000 or in intger form 0
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00010000000000000000000010010011
-Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 10000000000000000001000001100011
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 20 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 20 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0004 or in intger form 4
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000111111100000000000100010011
-Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 01000000000000000001000001100011
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 40 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 40 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0008 or in intger form 8
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00001000000000000000000110010011
-Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 00100000000000000001000001100011
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 60 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 60 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 000C or in intger form 12
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00100011010000000000001000010011
-Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 00010000000000000001000001100011
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 80 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 80 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0010 or in intger form 16
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 11101101110000000000001010010011
-Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 00001000000000000001000001100011
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 100 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 100 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0014 or in intger form 20
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00010010001100000000001100010011
-Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
+Note: 00000100000000000001000001100011
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 120 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 120 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0018 or in intger form 24
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001000000000100011
+Note: 00000010000000000001000001100011
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 140 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 140 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 001C or in intger form 28
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001100001000000010100011
+Note: 00000000000000000001100001100011
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 160 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 1000
+Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 160 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0020 or in intger form 32
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001000000100100011
+Note: 00000000000000000001010001100011
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 180 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0100
+Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 180 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0024 or in intger form 36
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001100001000000110100011
+Note: 00000000000000000001001001100011
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 200 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0010
+Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 200 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0028 or in intger form 40
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010000001001001000100011
+Note: 00000000000000000001000101100011
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 220 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0001
+Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 220 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 002C or in intger form 44
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100001001001100100011
+Note: 00000000000000000001000011100011
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Performing addition on bit_vectors of lengths 16 and 16
 Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 240 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Note: VISIBLE
+Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Note: imm41: 0000
+Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Trace done
 Time: 240 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: instruction fetched @ 0030 or in intger form 48
 Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000011000001010010000100011
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0034 or in intger form 52
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000001000010100000011
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 280 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 280 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0038 or in intger form 56
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000100001000010110000011
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 300 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 300 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 003C or in intger form 60
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001000011000000011
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 320 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 320 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0040 or in intger form 64
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001100001000011010000011
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 340 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 340 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0044 or in intger form 68
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000001100011100000011
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 360 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 360 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0048 or in intger form 72
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000100001100011110000011
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 380 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 380 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 004C or in intger form 76
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001100100000000011
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 400 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 400 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0050 or in intger form 80
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001100001100100010000011
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 420 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 420 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0054 or in intger form 84
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010000001001100100000011
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 440 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 440 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0058 or in intger form 88
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000011000001001100110000011
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 460 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 460 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 005C or in intger form 92
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010000001101101000000011
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 480 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 480 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0060 or in intger form 96
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000011000001101101010000011
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 500 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 500 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0064 or in intger form 100
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000100000001010101100000011
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 520 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 520 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0068 or in intger form 104
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100001000101110000011
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 540 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 540 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 006C or in intger form 108
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100001100110000000011
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 560 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 560 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0070 or in intger form 112
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100001001110010000011
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 580 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 580 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0074 or in intger form 116
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010100001101110100000011
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 600 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 600 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0078 or in intger form 120
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00001010101000000000001110010011
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 620 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 620 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 007C or in intger form 124
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000011100001000000000100011
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 640 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 640 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0080 or in intger form 128
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000001000110110000011
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 660 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 660 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0084 or in intger form 132
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000001100111000000011
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 680 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 680 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0088 or in intger form 136
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 11101110111100000000010000010011
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 700 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 700 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 008C or in intger form 140
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000100000001001000100100011
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 720 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 720 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0090 or in intger form 144
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001001111010000011
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 740 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 740 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0094 or in intger form 148
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000001000001101111100000011
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 760 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 760 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 0098 or in intger form 152
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 11101010110100000000010010010011
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 32 and 32
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 780 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 780 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 009C or in intger form 156
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000100100001010001000100011
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 800 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 800 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 00A0 or in intger form 160
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000010000001010111110000011
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 820 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 820 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 00A4 or in intger form 164
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: 00000000000000000000000000010011
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Performing addition on bit_vectors of lengths 16 and 16
-Time: 840 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
-Note: Trace done
-Time: 840 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
-Note: instruction fetched @ 00A8 or in intger form 168
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: 00000000000000000000000000000000
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Error: illegal insruction
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: CPU loop ended
-Time: 860 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
+Time: 260 ns  Iteration: 0  Process: /testbench/UUT/line__62  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.srcs/sources_1/new/SoC.vhd
 Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
-Time: 860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 Note: Testbench completed.
-Time: 860 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
+Time: 260 ns  Iteration: 1  Process: /testbench/line__77  File: C:/Users/ceran/Documents/BoriSoC/BoriSoC/BoriSoC.sim/testbench.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 640.406 ; gain = 17.984
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 641.082 ; gain = 20.484
 # run 10 us
-INFO: [Common 17-206] Exiting Vivado at Thu May 29 01:30:10 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu May 29 16:58:40 2025...

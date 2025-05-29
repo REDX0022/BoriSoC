@@ -409,13 +409,13 @@ package body IO_pack is
 
     procedure trace_B(opcodem: mnemonic_type; imm11_B: bit; imm41: bit_vector(3 downto 0); rs1: reg_addr_type; rs2: reg_addr_type; imm105: bit_vector(5 downto 0); imm12: bit;PC_trace:addr_type ;regs: regs_type; f: inout text) is
         variable l: line := null;
+        --variable imm41r : bit_vector(0 to 3) := imm41; 
         begin
             write(l, opcodem & ' ');
             write(l, decode_reg_addr(rs1) & ' ');
             write(l, decode_reg_addr(rs2) & ' ');
-            report "VISIBLE";
-                report "imm41: " & bitvec_to_bitstring(imm41);
-            write(l, bitvec_to_hex_string(imm12 & imm41 & imm105 & imm11_B) & " @ "); --TODO: check why this messes up or not bcs its changed rerun texin_BRANCH
+            
+            write(l, bitvec_to_hex_string(imm11_B & reverse(imm41) & reverse(imm105) & imm12) & " @ "); --TODO: check why this messes up or not bcs its changed rerun texin_BRANCH
             write(l, bitvec_to_hex_string(PC_trace) & ' ');
             for i in regs'range loop
                 --write(l, "x" & integer'image(i) &x ": "); this will be in the header

@@ -136,6 +136,7 @@ package def_pack is
     function bv_to_integer(bv: bit_vector) return integer;
     function bv_to_signed_integer(bv : bit_vector) return integer;
     function bv_to_unsigned(bv: bit_vector) return unsigned;
+    function reverse(bv: bit_vector) return bit_vector;
 
     --------------------Sign and Zero extentinon functions-------------------
 
@@ -340,6 +341,16 @@ package body def_pack is
         return result;
     end function;
 
+    function reverse(bv: bit_vector) return bit_vector is
+        variable result: bit_vector(bv'range);
+        variable l: integer := bv'left;
+        variable r: integer := bv'right;
+        begin
+            for i in bv'range loop
+                result(i) := bv(l + r - i); -- reverse the index
+            end loop;
+            return result;
+    end function;
 
     ---------------------Sign and Zero extentinon functions--------------
      function signext_b2dw(byte: byte_type) return dword_type is --naming scheme is horrible i know
