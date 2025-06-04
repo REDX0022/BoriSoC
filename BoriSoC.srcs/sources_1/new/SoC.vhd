@@ -197,7 +197,7 @@ architecture functional of SoC is
                                             regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0));
                                         else
                                             --report "GOT INTO SRL";     
-                                            --report "SHIFTING BY " & integer'image(bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0)));   
+                                            ----report "SHIFTING BY " & integer'image(bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0)));   
                                             regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) srl bv_to_integer(regs(bv_to_integer(rs2))(4 downto 0));
                                         end if;
                                 when others=> --THIS WILL NEVER HAPPEN
@@ -215,7 +215,7 @@ architecture functional of SoC is
                         when ADDf3 => --ADDI
                             --report "GOT INTO ADDI";
                             
-                            --report "imm is " & bitvec_to_bitstring(imm110) & " or in intger form " &integer'image(bv_to_integer(imm110));
+                            ----report "imm is " & bitvec_to_bitstring(imm110) & " or in intger form " &integer'image(bv_to_integer(imm110));
                            
                             
                         
@@ -224,7 +224,7 @@ architecture functional of SoC is
                         
                         when SLTf3 =>
                             --report "GOT INTO SLTI";
-                            --report "Integers to be compeered are SLTI " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            ----report "Integers to be compeered are SLTI " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
                             if (bv_to_signed_integer(regs(bv_to_integer(rs1))) < bv_to_signed_integer(signext_bv2dw(imm110))) then -- ERROR HERE
                                 regs(bv_to_integer(rd)) := X"00000001";
                             else
@@ -233,7 +233,7 @@ architecture functional of SoC is
                         when SLTUf3 => -- the imm is first SIGN extended and the treated as unsigned
                             --report "GOT INTO SLTUI";
 
-                            --report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
+                            ----report "Integers to be compeered are SLTIU " & integer'image(bv_to_integer(regs(bv_to_integer(rs1)))) & " and " & integer'image(bv_to_integer(signext_bv2dw(imm110)));
                             if (bv_to_unsigned(regs(bv_to_integer(rs1))) < bv_to_unsigned(signext_bv2dw(imm110))) then
                                 regs(bv_to_integer(rd)) := X"00000001";
                             else
@@ -254,7 +254,7 @@ architecture functional of SoC is
                         when SRL_Af3 =>
                             if(instr(30) = '1') then --too nieche to make a separeate variable
                                 --report "GOT INTO SRAI";       
-                                --report "SHIFTING BY " & integer'image(bv_to_integer(imm40_I));
+                                ----report "SHIFTING BY " & integer'image(bv_to_integer(imm40_I));
                                 regs(bv_to_integer(rd)) := regs(bv_to_integer(rs1)) sra bv_to_integer(imm40_I);
                             else
                                 --report "GOT INTO SRLI";       

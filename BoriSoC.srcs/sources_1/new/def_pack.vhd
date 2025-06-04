@@ -499,7 +499,7 @@ package body def_pack is
         variable carry  : bit := '0';
         variable idx: integer :=0;
             begin
-            --report "Performing addition on bit_vectors of lengths " & integer'image(len_a) & " and " & integer'image(len_b) severity note;
+            ----report "Performing addition on bit_vectors of lengths " & integer'image(len_a) & " and " & integer'image(len_b) severity note;
             -- Copy inputs into zero-extended vectors (aligned at LSB)
             idx := a'length-1;
             for i in a'range loop
@@ -538,7 +538,7 @@ package body def_pack is
         variable idx    : integer := 0;
     begin
         -- Copy inputs into zero-extended vectors (aligned at LSB)
-        --report "Performing subtraction on bit_vectors of lengths " & integer'image(len_a) & " and " & integer'image(len_b) severity note;
+        ----report "Performing subtraction on bit_vectors of lengths " & integer'image(len_a) & " and " & integer'image(len_b) severity note;
         idx := a'length;
         for i in a'range loop
             a_ext(idx) := a(i);

@@ -115,7 +115,7 @@ architecture TB of testbench is
                 if(cpu_done = '0') then
                     wait on cycle_SoC_end;
                 else 
-                    report "CPU done, exiting test loop.";
+                    ----report "CPU done, exiting test loop.";
                     exit test_loop; -- Exit the loop if CPU is done
                 end if;
                 -- Now do your trace/logging
@@ -150,7 +150,7 @@ architecture TB of testbench is
                                         instrm := SUBm;
                                         -- Handle SUB instructions here
                                     when others =>
-                                        report "Unknown funct7 for ADD: " & bitvec_to_bitstring(instr_trace);
+                                        --report "Unknown funct7 for ADD: " & bitvec_to_bitstring(instr_trace);
                                         exit test_loop; -- Exit the loop on unknown funct7
 
                                 end case;
@@ -182,7 +182,7 @@ architecture TB of testbench is
                                     -- Handle SRL instructions here
                                 end if;
                             when others =>
-                                    report "Unknown funct3 for OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                                    ----report "Unknown funct3 for OP instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                     exit test_loop; -- Exit the loop on unknown funct3
                         end case;
                         trace_R(instrm, rd, rs1, rs2, PC_trace, regs_trace, trace_f);
@@ -230,22 +230,22 @@ architecture TB of testbench is
                         end case;
                         trace_I(instrm, rd, rs1, imm110, PC_trace,regs_trace,trace_f);
                     when LUI =>
-                        --report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        ----report "LUI instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         instrm := LUIm;
                         trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                         -- Handle LUI instructions here
                     when AUIPC =>
-                        --report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        ----report "AUIPC instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle AUIPC instructions here
                         instrm := AUIPCm;
                         trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f);
                     when JAL =>
-                        --report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        ----report "JAL instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JAL instructions here
                         instrm := JALm;
                         trace_U(instrm, rd, imm3112, PC_trace, regs_trace, trace_f); --this should be fine
                     when JALR =>
-                        --report "JALR instruction fetched: " & bitvec_to_bitstring(instr_trace);
+                        ----report "JALR instruction fetched: " & bitvec_to_bitstring(instr_trace);
                         -- Handle JALR instructions here
                         instrm := JALRm;
                         trace_I(instrm, rd, rs1, imm110, PC_trace, regs_trace, trace_f);
@@ -273,8 +273,8 @@ architecture TB of testbench is
                                 report "Unknown funct3 for BRANCH instruction fetched: " & bitvec_to_bitstring(instr_trace);
                                 exit test_loop; -- Exit the loop on unknown funct3
                         end case;
-                        report "VISIBLE";
-                        report "imm41: " & bitvec_to_bitstring(imm41);
+                        --report "VISIBLE";
+                        --report "imm41: " & bitvec_to_bitstring(imm41);
                         trace_B(instrm,imm11_B,imm41, rs1, rs2,imm105,imm12 , PC_trace, regs_trace, trace_f);    
                     when LOAD =>
                         case funct3 is

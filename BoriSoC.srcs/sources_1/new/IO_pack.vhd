@@ -76,12 +76,12 @@ package body IO_pack is
             
 
             -- Debug reports (optional)
-            report "A number of tokens was found" & integer'image(token_count);
+            --report "A number of tokens was found" & integer'image(token_count);
             
-            report tokens(0)(1 to tokens_len(0)) & 'S';
-            report tokens(1)(1 to tokens_len(1)) & "S";
-            report tokens(2)(1 to tokens_len(2)) &"S";
-            report tokens(3)(1 to tokens_len(3)) & "S";
+            --report tokens(0)(1 to tokens_len(0)) & 'S';
+            ----report tokens(1)(1 to tokens_len(1)) & "S";
+            --report tokens(2)(1 to tokens_len(2)) &"S";
+            --report tokens(3)(1 to tokens_len(3)) & "S";
 
             -- Now we have tokens
             parse_line(tokens, tokens_len, token_count, mem_res, curr_addr);
@@ -159,7 +159,7 @@ package body IO_pack is
                     curr_addr := hexstring_to_bitvec(tokens(1)(1 to tokens_len(1)));
             when VALm => -- VAL CAN FILL AT MOST 10 BYTES, might want to offload it onto a function to be clearer
                     for i in 1 to token_count-1 loop
-                        report "Put VAL @" & bitvec_to_hex_string(curr_addr);    
+                        --report "Put VAL @" & bitvec_to_hex_string(curr_addr);    
                         mem(bv_to_integer(curr_addr)) := hexstring_to_bitvec(tokens(i)(1 to tokens_len(i)));
                         curr_addr := slice_msb(curr_addr+X"0001");
                         
