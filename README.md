@@ -1,12 +1,12 @@
-*** BoriSoC, Independant/University project ***
+### BoriSoC, Independant/University project
     - RV32I functional model
     - BUILTIN Testbench and Assembly compiler
     - Test programs
 
-**NOTES**
+## NOTES
     - Had to make an artifical clock to have the testbench independent of the SoC
 
-**HOW TO OPERATE**
+## HOW TO OPERATE
     -from console run: vivado -mode batch -source sim.tcl
     -Test programs are in the test folder
     -The program to be tested is called textin.text
@@ -15,9 +15,9 @@
     -Some debugging reports have been left
 
 
-**GREAT TODOs: **
+## GREAT TODOs:
     - labels to assemblty preproccesor -- to hard
-        -that also means decoding signed stuff, idk
+        -that also means decoding signed sstuff, idk
         - also in trace with imm shift instructions 400 is added to imm because of the instr(30) determening bit
         
     -TO add an instruction, you need to add it to the soc, the IO_pack both for input and output
