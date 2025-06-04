@@ -1,7 +1,7 @@
-***BoriSoC, Independant/University project***
-    -RV32I functional model
-    -BUILTIN Testbench and Assembly compiler
-    -Test programs
+*** BoriSoC, Independant/University project ***
+    - RV32I functional model
+    - BUILTIN Testbench and Assembly compiler
+    - Test programs
 
 **NOTES**
     - Had to make an artifical clock to have the testbench independent of the SoC
@@ -13,7 +13,7 @@
     -The outputs are the TRACE and DUMP in the trace.txt and dump.txt files respecivelty
         -Note: all mentioned files have to already exist, they will NOT be created by the testbench
     -Some debugging reports have been left
-    
+
 
 **GREAT TODOs: **
     - labels to assemblty preproccesor -- to hard
