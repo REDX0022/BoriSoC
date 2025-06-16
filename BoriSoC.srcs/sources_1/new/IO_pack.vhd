@@ -433,7 +433,7 @@ package body IO_pack is
             write(l, opcodem & ' ');
             write(l, decode_reg_addr(rs1) & ' ');
             write(l, decode_reg_addr(rs2) & ' ');
-            write(l, bitvec_to_hex_string(imm115 & imm40) & " @ ");
+            write(l, bitvec_to_hex_string(imm40 & imm115) & " @ ");
             write(l, bitvec_to_hex_string(PC_trace) & ' ');
             for i in regs'range loop
                 --write(l, "x" & integer'image(i) & ": "); this will be in the header

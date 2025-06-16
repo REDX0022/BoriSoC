@@ -1,0 +1,43 @@
+; LUI tests for 16-bit address space (results wrap at 0x10000)
+
+; Basic values
+@ 0000
+LUI x1 00000      ; x1 = (0x00000 << 12) & 0xFFFF
+LUI x2 00001      ; x2 = (0x00001 << 12) & 0xFFFF
+LUI x3 0000F      ; x3 = (0x0000F << 12) & 0xFFFF
+LUI x4 00010      ; x4 = (0x00010 << 12) & 0xFFFF
+LUI x5 00020      ; x5 = (0x00020 << 12) & 0xFFFF
+
+; Edge cases
+LUI x6 FFFFF      ; x6 = (0xFFFFF << 12) & 0xFFFF
+LUI x7 7FFFF      ; x7 = (0x7FFFF << 12) & 0xFFFF
+LUI x8 80000      ; x8 = (0x80000 << 12) & 0xFFFF
+
+; Overwrite test
+LUI x9 0AAAA      ; x9 = (0x0AAAA << 12) & 0xFFFF
+LUI x9 05555      ; x9 = (0x05555 << 12) & 0xFFFF
+
+; LUI with zero register (should have no effect)
+LUI x0 12345      ; x0 should remain 0
+
+; Alternating patterns
+LUI x10 55555     ; x10 = (0x55555 << 12) & 0xFFFF
+LUI x11 AAAAA     ; x11 = (0xAAAAA << 12) & 0xFFFF
+
+; Minimum and maximum
+LUI x12 00000     ; x12 = (0x00000 << 12) & 0xFFFF
+LUI x13 FFFFF     ; x13 = (0xFFFFF << 12) & 0xFFFF
+
+; Incrementing pattern
+LUI x14 00001     ; x14 = (0x00001 << 12) & 0xFFFF
+LUI x15 00002     ; x15 = (0x00002 << 12) & 0xFFFF
+LUI x16 00003     ; x16 = (0x00003 << 12) & 0xFFFF
+
+; Decrementing pattern
+LUI x17 FFFFE     ; x17 = (0xFFFFE << 12) & 0xFFFF
+LUI x18 FFFFD     ; x18 = (0xFFFFD << 12) & 0xFFFF
+
+; Mid-range values
+LUI x19 40000     ; x19 = (0x40000 << 12) & 0xFFFF
+LUI x20 20000     ; x20 = (0x20000 << 12) & 0xFFFF
+LUI x21 10000     ; x21 = (0x10000 << 12) & 0xFFFF
